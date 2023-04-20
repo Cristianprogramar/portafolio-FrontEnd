@@ -1,0 +1,20 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin mq_phone {
+    @media (max-width: v.$mq_phone) {
+        @content;
+    }
+}
+
+@mixin mq_tablet {
+    @media (max-width: v.$mq_tablet) {
+        @content;
+    }
+}
+
+@mixin mq_desktop {
+    @media (max-width: v.$mq_desktop) {
+        @content;
+    }
+}

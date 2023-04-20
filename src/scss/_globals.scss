@@ -1,0 +1,36 @@
+@use 'variables' as v;
+
+/* Reseteo de REMS */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* Globales */
+body {
+    font-family: v.$font_principal;
+    background: v.$color_bgPrincipal;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
