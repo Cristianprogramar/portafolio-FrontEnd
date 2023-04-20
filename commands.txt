@@ -1,0 +1,8 @@
+//Creo el repositorio evitando el GitHub y que lo cree en la misma carpeta
+ng new YoProgramoFrontEnd --directory . --skip-git
+
+//Creo un modulo y lo importo automaticamente
+ng generate component components/header
+
+//Compilar 
+ng build --configuration production --aot
