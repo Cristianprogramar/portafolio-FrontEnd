@@ -1,0 +1,173 @@
+@use '../../../../scss/variables' as v;
+
+//Contenedor principal
+.banner {
+    position: relative;
+    padding: 0 9%;
+    display: flex;
+    align-items: center;
+    background: url(../../../../assets/img/general/wallpaper.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+
+    //Agrega opacidad a el banner
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+    }
+
+    //Contenido
+    &__content {
+        max-width: 70rem;
+    }
+
+    //Texto principal
+    &__textPrincipal {
+        font-weight: 700;
+        font-size: 5.6rem;
+        line-height: 1.3;
+    }
+
+    //Contenedor + texto secundario
+    &__boxText {
+        position: relative;
+        width: 38rem;
+
+        &__textSecundary {
+            font-weight: 700;
+            font-size: 3.2rem;
+            color: transparent;
+            -webkit-text-stroke: .7px v.$color_principal;
+        }
+    }
+
+    //Párrafo
+    &__textTertiary {
+        margin: 2rem 0 4rem;
+        font-size: 1.6rem;
+    }
+
+    //Contenedor + boton
+    &__boxBtn {
+        position: relative;
+        width: 34.5rem;
+        height: 5rem;
+        display: flex;
+        justify-content: space-between;
+
+        &__btn {
+            position: relative;
+            width: 15rem;
+            height: 100%;
+            border: .2rem solid v.$color_principal;
+            border-radius: 0.8rem;
+            letter-spacing: .1rem;
+            font-weight: 600;
+            font-size: 1.8rem;
+            background: v.$color_principal;
+            color: v.$color_bgPrincipal;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            overflow: hidden;
+            transition: .5s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: v.$color_bgPrincipal;
+                z-index: -1;
+                transition: .5s;
+            }
+
+           &:nth-child(2) {
+                background: transparent;
+                color: v.$color_principal;
+
+                &::before {
+                    background: v.$color_principal;
+                }
+
+                &:hover {
+                    color: v.$color_bgPrincipal;
+                }
+           }
+
+           &:hover {
+                color: v.$color_principal;
+
+                &::before {
+                    width: 100%;
+                }
+           }
+        }
+    }
+
+    //Contenedor + iconos de redes sociales
+    &__boxSocial {
+        position: absolute;
+        width: 17rem;
+        bottom: 4rem;
+        display: flex;
+        justify-content: space-between;
+
+        &__icon {
+            position: relative;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: .2rem solid v.$color_principal;
+            font-size: 2rem;
+            background: transparent;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            overflow: hidden;
+            transition: .5s;
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: v.$color_principal;
+                z-index: -1;
+                transition: .5s;
+            }
+
+            &:hover::before {
+                width: 100%;
+            }
+
+            //Color al icono de Facebook
+            &:nth-child(1) {
+                color: #1877F2;
+            }
+
+            //Color al icono de Instagram
+            &:nth-child(2) {
+                color: #E4405F;
+            }
+
+            //Color al icono de Youtube
+            &:nth-child(3) {
+                color: #FF0000;
+            }
+        }
+    }
+}
