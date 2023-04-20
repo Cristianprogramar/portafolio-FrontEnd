@@ -1,0 +1,66 @@
+@use '../../../scss/variables' as v;
+@use '../../../scss/mixins' as m;
+
+/* Variables locales */
+$header_transform: scale(1.1);
+
+//Contenedor principal
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 2rem 9%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+
+    //Contenedor + img del logo AP
+    &__logo {
+        width: 12rem;
+
+        &__img {
+            width: 100%;
+        }
+
+        &:hover {
+            transform: $header_transform;
+        }
+    }
+
+    //Barra de navegación
+    &__navbar {
+        display: flex;
+        align-items: center;
+
+        //Textos
+        &__text {
+            margin-left: 3.5rem;
+            font-weight: 500;
+            font-size: 1.7rem;
+            color: v.$color_text;
+            transition: .3s;
+
+            &:active, &:hover, &.active {
+                color: v.$color_principal;
+            }
+        }
+
+        //Boton de login/logout
+        &__btn {
+            margin-left: 3.5rem;
+            padding: 0.5rem 1.6rem;
+            border-radius: 0.5rem;
+            font-size: 1.6rem;
+            background-color: v.$color_principal;
+            color: v.$color_text;
+            text-transform: uppercase;
+
+            &:hover {
+                transform: $header_transform;
+            }
+        }
+    }
+}
