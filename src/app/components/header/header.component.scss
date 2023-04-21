@@ -16,6 +16,12 @@ $header_transform: scale(1.1);
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: .3s;
+
+    //Sticky
+    &.--sticky {
+        background: v.$color_bgPrincipal;
+    }
 
     //Contenedor + img del logo AP
     &__logo {

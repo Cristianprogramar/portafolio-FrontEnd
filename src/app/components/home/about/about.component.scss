@@ -10,18 +10,6 @@
     align-items: center;
     gap: 2rem;
 
-    //Texto de la seccion
-    &__heading {
-        font-size: 5rem;
-        margin-bottom: 3rem;
-        text-align: center;
-
-        //Color secundario a la seccion
-        span {
-            color: v.$color_principal;
-        }
-    }
-
     //Contenedor + imagen
     &__boxPrincipal {
         position: relative;
