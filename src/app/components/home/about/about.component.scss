@@ -1,0 +1,70 @@
+@use '../../../../scss/variables' as v;
+
+//Contenedor principal
+.about {
+    padding-bottom: 6rem;
+    background: v.$color_bgSecondary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    //Texto de la seccion
+    &__heading {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+
+        //Color secundario a la seccion
+        span {
+            color: v.$color_principal;
+        }
+    }
+
+    //Contenedor + imagen
+    &__boxPrincipal {
+        position: relative;
+        width: 25rem;
+        height: 25rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__img {
+            width: 90%;
+            border-radius: 50%;
+            border: .2rem solid v.$color_principal;
+        }
+
+        //Efecto a la imagen
+        &__spinner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0);
+            border-radius: 50%;
+            border-top: .2rem solid transparent;
+            border-bottom: .2rem solid transparent;
+            border-left: .2rem solid v.$color_principal;
+            border-right: .2rem solid v.$color_principal;
+        }
+    }
+
+    //Nombre de usuario + descripcion
+    &__content {
+        text-align: center;
+
+        &__nameUser {
+            font-size: 2.6rem;
+        }
+
+        &__description {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+    }
+}
