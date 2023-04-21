@@ -4,5 +4,8 @@ ng new YoProgramoFrontEnd --directory . --skip-git
 //Creo un modulo y lo importo automaticamente
 ng generate component components/header
 
+//Instalar libreria para descargar archivos - CV
+npm install file-saver --save
+
 //Compilar 
 ng build --configuration production --aot

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { ContactComponent } from './components/home/contact/contact.component';
 import { SkillsComponent } from './components/home/skills/skills.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { ExperienceComponent } from './components/home/experience/experience.component';
+import { MessengerComponent } from './components/messenger/messenger.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { ExperienceComponent } from './components/home/experience/experience.com
     ContactComponent,
     SkillsComponent,
     ProjectsComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
