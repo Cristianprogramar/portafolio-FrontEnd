@@ -1,10 +1,20 @@
 @use 'variables' as v;
+@use 'mixins' as m;
 
 /* Reseteo de REMS */
 html {
     font-size: 62.5%;
     box-sizing: border-box;
     overflow-x: hidden;
+
+    //Reduce el font-size para mejor lectura
+    @include m.mq_notebook {
+        font-size: 55%;
+    }
+
+    @include m.mq_phone {
+        font-size: 53%;
+    }
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -34,8 +44,14 @@ button {
 section {
     min-height: 100vh;
     padding: 10rem 9% 2rem;
+
+    //Reduce el padding
+    @include m.mq_notebook {
+        padding: 10rem 4% 2rem;
+    }
 }
 
+//Texto de cada sección
 .heading {
     font-size: 5rem;
     margin-bottom: 3rem;

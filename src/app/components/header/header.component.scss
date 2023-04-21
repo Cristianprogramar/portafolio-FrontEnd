@@ -18,6 +18,11 @@ $header_transform: scale(1.1);
     z-index: 100;
     transition: .3s;
 
+    //Reduce el padding
+    @include m.mq_notebook {
+        padding: 2rem 4%;
+    }
+
     //Sticky
     &.--sticky {
         background: v.$color_bgPrincipal;
@@ -51,6 +56,11 @@ $header_transform: scale(1.1);
 
             &:active, &:hover, &.active {
                 color: v.$color_principal;
+            }
+
+            //Oculta los textos
+            @include m.mq_tablet {
+                display: none;
             }
         }
 

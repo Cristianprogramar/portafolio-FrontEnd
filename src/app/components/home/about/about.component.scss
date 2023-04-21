@@ -22,8 +22,10 @@
 
         &__img {
             width: 90%;
+            height: 90%;
             border-radius: 50%;
             border: .2rem solid v.$color_principal;
+            object-fit: cover;
         }
 
         //Efecto a la imagen

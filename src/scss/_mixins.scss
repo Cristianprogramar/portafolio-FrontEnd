@@ -13,8 +13,8 @@
     }
 }
 
-@mixin mq_desktop {
-    @media (max-width: v.$mq_desktop) {
+@mixin mq_notebook {
+    @media (max-width: v.$mq_notebook) {
         @content;
     }
 }

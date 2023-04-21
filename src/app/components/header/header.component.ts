@@ -17,5 +17,5 @@ export class HeaderComponent {
         if (event.target.documentElement.scrollTop < 100) {
             this.renderer.removeClass(header, '--sticky');
         }
-    }  
-};
+    }
+}
