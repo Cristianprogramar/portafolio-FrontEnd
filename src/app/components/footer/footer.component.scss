@@ -1,4 +1,5 @@
 @use '../../../scss/variables' as v;
+@use '../../../scss/mixins' as m;
 
 //Contenedor principal
 .footer {
@@ -16,6 +17,16 @@
         &__text {
             font-size: 1.6rem;
         }
+
+        //Le da un espaciado
+        @include m.mq_phone {
+            margin-top: 1.5rem;
+        }
+    }
+
+    //Cambia el flex
+    @include m.mq_phone {
+        flex-direction: column-reverse;
     }
 
     //Contenedor + icono
