@@ -10,6 +10,11 @@
     justify-content: space-between;
     align-items: center;
 
+    //Ajusta el footer con el mobile-bar
+    @include m.mq_tablet {
+        margin-bottom: 9rem;
+    }
+
     //Contenedor + texto
     &__boxText {
         text-align: center;

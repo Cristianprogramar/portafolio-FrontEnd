@@ -54,7 +54,7 @@ $header_transform: scale(1.1);
             color: v.$color_text;
             transition: .3s;
 
-            &:active, &:hover, &.active {
+            &:active, &:hover {
                 color: v.$color_principal;
             }
 
