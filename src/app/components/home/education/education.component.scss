@@ -1,0 +1,76 @@
+@use '../../../../scss/variables' as v;
+@use '../../../../scss/mixins' as m;
+
+//Contenedor principal
+.education {
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    //Texto de la sección
+    &__heading {
+        @include m.heading();
+    }
+
+    //Barra
+    &__bar {
+        border-left: .2rem solid v.$color_principal;
+    }
+
+    //Caja principal
+    &__box {
+        position: relative;
+        padding-left: 2rem;
+        margin-top: 2rem;
+
+        //Agrega los puntos a la barra
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top: 0;
+            left: -1.1rem;
+            border-radius: 50%;
+            background: v.$color_principal;
+        }
+    }
+
+    //Contenido de la caja
+    &__content {
+        position: relative;
+        border-radius: .6rem;
+        border: .2rem solid v.$color_principal;
+        padding: 1.5rem;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: v.$color_bgSecondary;
+            transition: .5s;
+            z-index: -1;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+    }
+
+    //Subtítulo
+    &__subtitle {
+        font-size: 2rem;
+    }
+
+    //Descripción
+    &__description {
+        padding-top: .5rem;
+        font-size: 1.6rem;
+    }
+}
