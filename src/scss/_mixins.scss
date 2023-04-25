@@ -1,5 +1,16 @@
 @use 'variables' as v;
 
+/* Heading - texto de cada sección */
+@mixin heading {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+
+    span {
+        color: v.$color_principal;
+    }
+}
+
 /** Media Queries **/
 @mixin mq_phone {
     @media (max-width: v.$mq_phone) {

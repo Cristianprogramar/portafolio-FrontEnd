@@ -1,18 +1,26 @@
 @use '../../../../scss/variables' as v;
 @use '../../../../scss/mixins' as m;
 
+//Contenedor principal
 .skills {
-    padding-bottom: 6rem;
+    padding-bottom: 7rem;
+    background: v.$color_bgSecondary;
+    gap: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
 
+    //Texto de la sección
+    &__heading {
+        @include m.heading();
+    }
+
+    //Contenido
     &__content {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 20px;
+        grid-gap: 2rem;
 
         @include m.mq_tablet {
             grid-template-columns: repeat(2, 1fr);

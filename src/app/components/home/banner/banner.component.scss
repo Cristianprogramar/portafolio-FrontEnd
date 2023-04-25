@@ -28,7 +28,8 @@
     &__content {
         max-width: 70rem;
 
-        @include m.mq_phone {
+        //El contenido se centra
+        @include m.mq_phone() {
             display: flex;
             align-items: center;
             flex-direction: column;
@@ -44,7 +45,7 @@
     }
 
     //Cambio de flex
-    @include m.mq_phone {
+    @include m.mq_phone() {
         justify-content: center;
     }
 
@@ -89,9 +90,9 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            z-index: 1;
             overflow: hidden;
             transition: .5s;
+            z-index: 1;
 
             &::before {
                 content: '';
@@ -151,9 +152,9 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            z-index: 1;
             overflow: hidden;
             transition: .5s;
+            z-index: 1;
 
             &::before {
                 content: '';
@@ -163,8 +164,8 @@
                 top: 0;
                 left: 0;
                 background: v.$color_principal;
-                z-index: -1;
                 transition: .5s;
+                z-index: -1;
             }
 
             &:hover::before {

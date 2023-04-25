@@ -15,8 +15,8 @@ $header_transform: scale(1.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
     transition: .3s;
+    z-index: 100;
 
     //Reduce el padding
     @include m.mq_notebook {
