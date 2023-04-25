@@ -16,8 +16,8 @@
         @include m.heading();
     }
 
-    //Contenedor + imagen
-    &__boxPrincipal {
+    //Contenedor de la imagen
+    &__containerImg {
         position: relative;
         width: 25rem;
         height: 25rem;
@@ -25,42 +25,45 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        &__img {
-            width: 90%;
-            height: 90%;
-            border-radius: 50%;
-            border: .2rem solid v.$color_principal;
-            object-fit: cover;
-        }
-
-        //Efecto a la imagen
-        &__spinner {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(0);
-            border-radius: 50%;
-            border-top: .2rem solid transparent;
-            border-bottom: .2rem solid transparent;
-            border-left: .2rem solid v.$color_principal;
-            border-right: .2rem solid v.$color_principal;
-        }
     }
 
-    //Nombre de usuario + descripcion
+    //Imagen de usuario  
+    &__img {
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        border: .2rem solid v.$color_principal;
+        object-fit: cover;
+    }
+
+    //Efecto a la imagen
+    &__spinner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(0);
+        border-radius: 50%;
+        border-top: .2rem solid transparent;
+        border-bottom: .2rem solid transparent;
+        border-left: .2rem solid v.$color_principal;
+        border-right: .2rem solid v.$color_principal;
+    }
+
+    //Contenedor de usuario
     &__content {
         text-align: center;
+    }
 
-        &__nameUser {
-            font-size: 2.6rem;
-        }
+    //Nombre de usuario
+    &__nameUser {
+        font-size: 2.6rem;
+    }
 
-        &__description {
-            font-size: 1.6rem;
-            margin: 2rem 0 3rem;
-        }
+    //Descripción de usuario
+    &__description {
+        font-size: 1.6rem;
+        margin: 2rem 0 3rem;
     }
 }

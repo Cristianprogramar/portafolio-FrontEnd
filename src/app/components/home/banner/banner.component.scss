@@ -1,6 +1,12 @@
 @use '../../../../scss/variables' as v;
 @use '../../../../scss/mixins' as m;
 
+/* Variables Locales */
+$background__black: rgba(0, 0, 0, 0.5);
+$color_facebook: #1877F2;
+$color_instagram: #E4405F;
+$color_linkedin: #0077B5;
+
 //Contenedor principal
 .banner {
     position: relative;
@@ -12,6 +18,11 @@
     background-position: center;
     z-index: 1;
 
+    //Cambio de flex
+    @include m.mq_phone() {
+        justify-content: center;
+    }
+
     //Agrega opacidad a el banner
     &::before {
         content: "";
@@ -20,7 +31,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: $background__black;
         z-index: -1;
     }
 
@@ -44,22 +55,18 @@
         line-height: 1.3;
     }
 
-    //Cambio de flex
-    @include m.mq_phone() {
-        justify-content: center;
-    }
-
-    //Contenedor + texto secundario
-    &__boxText {
+    //Contenedor del texto secundario
+    &__containerText {
         position: relative;
         width: 38rem;
+    }
 
-        &__textSecundary {
-            font-weight: 700;
-            font-size: 3.2rem;
-            color: transparent;
-            -webkit-text-stroke: .7px v.$color_principal;
-        }
+    //Texto secundario
+    &__textSecundary {
+        font-weight: 700;
+        font-size: 3.2rem;
+        color: transparent;
+        -webkit-text-stroke: .7px v.$color_principal;
     }
 
     //Párrafo
@@ -68,69 +75,70 @@
         font-size: 1.6rem;
     }
 
-    //Contenedor + boton
-    &__boxBtn {
+    //Contenedor de los botones
+    &__containerBtn {
         position: relative;
         width: 34.5rem;
         height: 5rem;
         display: flex;
         justify-content: space-between;
-
-        &__btn {
-            position: relative;
-            width: 15rem;
-            height: 100%;
-            border: .2rem solid v.$color_principal;
-            border-radius: 0.8rem;
-            letter-spacing: .1rem;
-            font-weight: 600;
-            font-size: 1.8rem;
-            background: v.$color_principal;
-            color: v.$color_bgPrincipal;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            transition: .5s;
-            z-index: 1;
-
-            &::before {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: v.$color_bgPrincipal;
-                z-index: -1;
-                transition: .5s;
-            }
-
-           &:nth-child(2) {
-                background: transparent;
-                color: v.$color_principal;
-
-                &::before {
-                    background: v.$color_principal;
-                }
-
-                &:hover {
-                    color: v.$color_bgPrincipal;
-                }
-           }
-
-           &:hover {
-                color: v.$color_principal;
-
-                &::before {
-                    width: 100%;
-                }
-           }
-        }
     }
 
-    //Contenedor + iconos de redes sociales
-    &__boxSocial {
+    //Botones
+    &__btn {
+        position: relative;
+        width: 15rem;
+        height: 100%;
+        border: .2rem solid v.$color_principal;
+        border-radius: 0.8rem;
+        letter-spacing: .1rem;
+        font-weight: 600;
+        font-size: 1.8rem;
+        background: v.$color_principal;
+        color: v.$color_bgPrincipal;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: .5s;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: v.$color_bgPrincipal;
+            transition: .5s;
+            z-index: -1;
+        }
+
+       &:nth-child(2) {
+            background: transparent;
+            color: v.$color_principal;
+
+            &::before {
+                background: v.$color_principal;
+            }
+
+            &:hover {
+                color: v.$color_bgPrincipal;
+            }
+       }
+
+       &:hover {
+            color: v.$color_principal;
+
+            &::before {
+                width: 100%;
+            }
+       }
+    }
+
+    //Contenedor de las redes sociales
+    &__containerSocial {
         position: absolute;
         width: 17rem;
         bottom: 4rem;
@@ -140,52 +148,53 @@
         @include m.mq_tablet{
             margin-bottom: 7rem;
         }
+    }
 
-        &__icon {
-            position: relative;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            border: .2rem solid v.$color_principal;
-            font-size: 2rem;
-            background: transparent;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+    //Iconos de redes
+    &__icon {
+        position: relative;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        border: .2rem solid v.$color_principal;
+        font-size: 2rem;
+        background: transparent;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        transition: .5s;
+        z-index: 1;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: v.$color_principal;
             transition: .5s;
-            z-index: 1;
+            z-index: -1;
+        }
 
-            &::before {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: v.$color_principal;
-                transition: .5s;
-                z-index: -1;
-            }
+        &:hover::before {
+            width: 100%;
+        }
 
-            &:hover::before {
-                width: 100%;
-            }
+        //Color al icono de Facebook
+        &:nth-child(1) {
+            color: $color_facebook;
+        }
 
-            //Color al icono de Facebook
-            &:nth-child(1) {
-                color: #1877F2;
-            }
+        //Color al icono de Instagram
+        &:nth-child(2) {
+            color: $color_instagram;
+        }
 
-            //Color al icono de Instagram
-            &:nth-child(2) {
-                color: #E4405F;
-            }
-
-            //Color al icono de Youtube
-            &:nth-child(3) {
-                color: #0077B5;
-            }
+        //Color al icono de LinkedIn
+        &:nth-child(3) {
+            color: $color_linkedin;
         }
     }
 }

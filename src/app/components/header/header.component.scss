@@ -28,55 +28,56 @@ $header_transform: scale(1.1);
         background: v.$color_bgPrincipal;
     }
 
-    //Contenedor + img del logo AP
-    &__logo {
+    //Contenedor de logo AP
+    &__containerLogo {
         width: 12rem;
-
-        &__img {
-            width: 100%;
-        }
 
         &:hover {
             transform: $header_transform;
         }
     }
 
+    //Logo AP
+    &__logo {
+        width: 100%;
+    }
+
     //Barra de navegación
     &__navbar {
         display: flex;
         align-items: center;
+    }
 
-        //Textos
-        &__text {
-            margin-left: 3.5rem;
-            font-weight: 500;
-            font-size: 1.7rem;
-            color: v.$color_text;
-            transition: .3s;
-
-            &:active, &:hover {
-                color: v.$color_principal;
-            }
-
-            //Oculta los textos
-            @include m.mq_tablet {
-                display: none;
-            }
+    //Textos
+    &__text {
+        margin-left: 3.5rem;
+        font-weight: 500;
+        font-size: 1.7rem;
+        color: v.$color_text;
+        transition: .3s;
+    
+        &:hover {
+            color: v.$color_principal;
         }
+    
+        //Oculta los textos
+        @include m.mq_tablet {
+            display: none;
+        }
+    }
 
-        //Boton de login/logout
-        &__btn {
-            margin-left: 3.5rem;
-            padding: 0.5rem 1.6rem;
-            border-radius: 0.5rem;
-            font-size: 1.6rem;
-            background-color: v.$color_principal;
-            color: v.$color_text;
-            text-transform: uppercase;
+    //Boton de login/logout
+    &__btn {
+        margin-left: 3.5rem;
+        padding: 0.5rem 1.6rem;
+        border-radius: 0.5rem;
+        font-size: 1.6rem;
+        background-color: v.$color_principal;
+        color: v.$color_text;
+        text-transform: uppercase;
 
-            &:hover {
-                transform: $header_transform;
-            }
+        &:hover {
+            transform: $header_transform;
         }
     }
 }

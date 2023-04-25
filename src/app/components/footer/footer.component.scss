@@ -15,13 +15,14 @@
         margin-bottom: 9rem;
     }
 
-    //Contenedor + texto
-    &__boxText {
-        text-align: center;
+    //Cambia el flex
+    @include m.mq_phone {
+        flex-direction: column-reverse;
+    }
 
-        &__text {
-            font-size: 1.6rem;
-        }
+    //Contenedor del texto
+    &__containerText {
+        text-align: center;
 
         //Le da un espaciado
         @include m.mq_phone {
@@ -29,52 +30,54 @@
         }
     }
 
-    //Cambia el flex
-    @include m.mq_phone {
-        flex-direction: column-reverse;
+    //Texto principal
+    &__text {
+        font-size: 1.6rem;
     }
 
-    //Contenedor + icono
-    &__boxTop {
+    //Contenedor inferior
+    &__containerBottom {
         text-align: center;
+    }
 
-        &__icon {
-            position: relative;
-            padding: .8rem;
-            border-radius: .6rem;
-            border: .2rem solid v.$color_principal;
-            background: v.$color_principal;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            overflow: hidden;
+    //Contenedor del icono
+    &__containerIcon {
+        position: relative;
+        padding: .8rem;
+        border-radius: .6rem;
+        border: .2rem solid v.$color_principal;
+        background: v.$color_principal;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        z-index: 1;
 
-            &::before {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: v.$color_bgSecondary;
-                z-index: -1;
-                transition: .5s;
-            }
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: v.$color_bgSecondary;
+            transition: .5s;
+            z-index: -1;
+        }
 
-            &:hover::before {
-                width: 100%;
-            }
+        &:hover::before {
+            width: 100%;
+        }
+    }
 
-            i {
-                font-size: 2.4rem;
-                color: v.$color_bgPrincipal;
-                transition: .5s;
+    //Icono
+    &__icon {
+        font-size: 2.4rem;
+        color: v.$color_bgPrincipal;
+        transition: .5s;
 
-                &:hover {
-                    color: v.$color_principal;
-                }
-            }
+        &:hover {
+            color: v.$color_principal;
         }
     }
 }

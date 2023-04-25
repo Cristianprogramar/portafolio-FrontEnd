@@ -11,13 +11,13 @@
     display: none;
     z-index: 50;
 
-    //En tablet/celu se muestra
+    //Se muestra
     @include m.mq_tablet{
         display: flex;
         padding: 0 15%;
     }
 
-    //En celu ajusta el padding
+    //Ajusta el padding
     @include m.mq_phone {
         padding: 0 3%;
     }
