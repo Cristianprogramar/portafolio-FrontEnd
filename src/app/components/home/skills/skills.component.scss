@@ -1,0 +1,25 @@
+@use '../../../../scss/variables' as v;
+@use '../../../../scss/mixins' as m;
+
+.skills {
+    padding-bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+
+        @include m.mq_tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include m.mq_phone {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}

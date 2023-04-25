@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,28 +20,40 @@ import { MessengerComponent } from './components/messenger/messenger.component';
 import { EducationComponent } from './components/home/education/education.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HomeComponent,
-    FooterComponent,
-    LoginComponent,
-    MobileBarComponent,
-    AboutComponent,
-    BannerComponent,
-    ContactComponent,
-    SkillsComponent,
-    ProjectsComponent,
-    ExperienceComponent,
-    MessengerComponent,
-    EducationComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        HomeComponent,
+        FooterComponent,
+        LoginComponent,
+        MobileBarComponent,
+        AboutComponent,
+        BannerComponent,
+        ContactComponent,
+        SkillsComponent,
+        ProjectsComponent,
+        ExperienceComponent,
+        MessengerComponent,
+        EducationComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgCircleProgressModule.forRoot({
+            radius: 90,
+            showUnits: false,
+            showSubtitle: false,
+            animation: true,
+            animationDuration: 600,
+            titleColor: "#ededed",
+            outerStrokeColor: "#28b2b6",
+            innerStrokeColor: "#fff",
+            outerStrokeWidth: 12,
+            innerStrokeWidth: 2
+        })
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
