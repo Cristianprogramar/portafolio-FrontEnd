@@ -19,4 +19,4 @@ export class MessengerComponent implements AfterViewInit {
             document.body.appendChild(scriptEl);
         });
     }
-};
+}
