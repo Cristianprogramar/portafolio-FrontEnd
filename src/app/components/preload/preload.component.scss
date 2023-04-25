@@ -1,0 +1,64 @@
+@use '../../../scss/variables' as v;
+
+/* Variables Locales */
+$background_gradient: linear-gradient(to right, #1abc9c, #3498db, #9b59b6, #e74c3c, #f1c40f, #1abc9c);
+$border_color: #1abc9c;
+
+/* Mixins Locales */
+@mixin animation_preloadPrincipal {
+    animation: preloadPrincipal 2s linear infinite;
+    @keyframes preloadPrincipal {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+@mixin animation_preloadSecondary {
+    animation: preloadSecondary 2s ease-in-out infinite;
+    @keyframes preloadSecondary {
+        0% {
+            transform: scale(0.8);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(0.8);
+        }
+    }
+}
+
+//Contenedor principal
+.preload__container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: v.$color_bgPrincipal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+
+    .preload__spinner {
+        position: relative;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        border: 0.4rem solid v.$color_white;
+        border-top-color: $border_color;
+        @include animation_preloadPrincipal();
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: -0.4rem;
+            left: -0.4rem;
+            bottom: -0.4rem;
+            right: -0.4rem;
+            border-radius: 50%;
+            background: $background_gradient;
+            @include animation_preloadSecondary();
+        }
+    }
+}
