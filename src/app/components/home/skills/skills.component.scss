@@ -4,7 +4,6 @@
 //Contenedor principal
 .skills {
     padding-bottom: 7rem;
-    background: v.$color_bgSecondary;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +20,10 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 2rem;
+
+        @include m.mq_notebook {
+            grid-template-columns: repeat(3, 1fr);
+        }
 
         @include m.mq_tablet {
             grid-template-columns: repeat(2, 1fr);

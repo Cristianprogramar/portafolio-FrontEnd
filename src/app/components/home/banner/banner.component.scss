@@ -7,13 +7,44 @@ $color_facebook: #1877F2;
 $color_instagram: #E4405F;
 $color_linkedin: #0077B5;
 
+/* Mixins Locales */
+@mixin bannerText() {
+    animation: bannerText 5s linear infinite;
+    animation-delay: 2s;
+    @keyframes bannerText {
+        0%, 10%, 100% {
+            background-position: -40rem 0;
+        }
+        65%, 85%{
+            background-position: 0 0;
+        }
+    }
+}
+
+@mixin bannerTextCursor() {
+    animation: bannerTextCursor 5s linear infinite;
+    animation-delay: 2s;
+    @keyframes bannerTextCursor {
+        0%, 13%, 100% {
+            width: 0;
+        }
+        65%, 78%, 85% {
+            width: 100%;
+            opacity: 1; 
+        }
+        75%, 81% {
+            opacity: 0;
+        }
+    }
+}
+
 //Contenedor principal
 .banner {
     position: relative;
     padding: 0 9%;
     display: flex;
     align-items: center;
-    background: url(../../../../assets/img/general/wallpaper.png) no-repeat;
+    background: url(../../../../assets/img/general/wall.webp) no-repeat;
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -65,8 +96,25 @@ $color_linkedin: #0077B5;
     &__textSecundary {
         font-weight: 700;
         font-size: 3.2rem;
-        color: transparent;
         -webkit-text-stroke: .7px v.$color_principal;
+        background-image: linear-gradient(v.$color_principal, v.$color_principal);
+        background-repeat: no-repeat;
+        background-clip: text;
+        background-position: -40rem 0;
+        color: transparent;
+        @include bannerText();
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-right: 0.2rem solid v.$color_principal;
+            @include bannerTextCursor();
+            z-index: -1;
+        }
     }
 
     //Párrafo
@@ -198,3 +246,4 @@ $color_linkedin: #0077B5;
         }
     }
 }
+

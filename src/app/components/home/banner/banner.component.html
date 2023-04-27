@@ -1,13 +1,13 @@
 <section class="banner" id="home">
     <div class="banner__content">
-        <h1 class="banner__textPrincipal">Cristian Emanuel</h1>
+        <h1 class="banner__textPrincipal">{{persona.nombre}}</h1>
         <div class="banner__containerText">
             <h3 class="banner__textSecundary">Full Stack Developer JR</h3>
         </div>
         <p class="banner__textTertiary">Este proyecto fue realizado en el marco de Argentina Programa #YoProgramo4, por Cristian Emanuel Tula para el ministerio de economía de la nación y el INTI.</p>
         <div class="banner__containerBtn">
-            <button class="banner__btn" href="#" (click)="downloadCv()">Ver CV</button>
-            <button class="banner__btn" href="#">Proyectos</button>
+            <button class="banner__btn" (click)="downloadCv()">Ver CV</button>
+            <a class="banner__btn" href="#projects">Proyectos</a>
         </div>
     </div>
     <div class="banner__containerSocial">

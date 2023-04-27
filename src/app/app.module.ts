@@ -12,13 +12,12 @@ import { LoginComponent } from './components/login/login.component';
 import { MobileBarComponent } from './components/mobile-bar/mobile-bar.component';
 import { AboutComponent } from './components/home/about/about.component';
 import { BannerComponent } from './components/home/banner/banner.component';
-import { ContactComponent } from './components/home/contact/contact.component';
 import { SkillsComponent } from './components/home/skills/skills.component';
-import { ProjectsComponent } from './components/home/projects/projects.component';
 import { ExperienceComponent } from './components/home/experience/experience.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
 import { EducationComponent } from './components/home/education/education.component';
 import { PreloadComponent } from './components/preload/preload.component';
+import { ProjectsComponent } from './components/home/projects/projects.component';
 
 @NgModule({
     declarations: [
@@ -30,13 +29,12 @@ import { PreloadComponent } from './components/preload/preload.component';
         MobileBarComponent,
         AboutComponent,
         BannerComponent,
-        ContactComponent,
         SkillsComponent,
-        ProjectsComponent,
         ExperienceComponent,
         MessengerComponent,
         EducationComponent,
-        PreloadComponent
+        PreloadComponent,
+        ProjectsComponent
     ],
     imports: [
         BrowserModule,
@@ -48,6 +46,7 @@ import { PreloadComponent } from './components/preload/preload.component';
             showSubtitle: false,
             animation: true,
             animationDuration: 600,
+            titleFontSize: '18',
             titleColor: "#ededed",
             outerStrokeColor: "#28b2b6",
             innerStrokeColor: "#fff",
