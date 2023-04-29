@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,8 @@ import { MessengerComponent } from './components/messenger/messenger.component';
 import { EducationComponent } from './components/home/education/education.component';
 import { PreloadComponent } from './components/preload/preload.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
+import { LoginContentComponent } from './components/login/login-content/login-content.component';
+import { interceptorProvider } from './service/interceptor-service.service';
 
 @NgModule({
     declarations: [
@@ -34,7 +37,8 @@ import { ProjectsComponent } from './components/home/projects/projects.component
         MessengerComponent,
         EducationComponent,
         PreloadComponent,
-        ProjectsComponent
+        ProjectsComponent,
+        LoginContentComponent
     ],
     imports: [
         BrowserModule,
@@ -52,9 +56,12 @@ import { ProjectsComponent } from './components/home/projects/projects.component
             innerStrokeColor: "#fff",
             outerStrokeWidth: 12,
             innerStrokeWidth: 2
-        })
+        }),
+        FormsModule
     ],
-    providers: [],
+    providers: [
+        interceptorProvider
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

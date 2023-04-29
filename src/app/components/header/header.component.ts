@@ -1,13 +1,17 @@
-import { Component, HostListener, Renderer2, ElementRef } from '@angular/core';
+import { Component, HostListener, Renderer2, ElementRef, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
 
-    constructor(private renderer: Renderer2, private el: ElementRef) {}
+export class HeaderComponent implements OnInit {
+
+    constructor(private renderer: Renderer2, private el: ElementRef, private tokenService: TokenService) {}
+
+    isLogged = false;
 
     //Header sticky
     @HostListener('window:scroll', ['$event'])
@@ -17,5 +21,22 @@ export class HeaderComponent {
         if (event.target.documentElement.scrollTop < 100) {
             this.renderer.removeClass(header, '--sticky');
         }
+    }
+
+    //Detecta el TOKEN
+    ngOnInit(): void {
+        if(this.tokenService.getToken()) {
+            this.isLogged = true;
+        }
+
+        else {
+            this.isLogged = false;
+        }
+    }
+
+    //Cierre de sesión
+    onLogOut(): void {
+        this.tokenService.logOut();
+        window.location.reload();
     }
 }

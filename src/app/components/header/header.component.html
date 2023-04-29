@@ -6,6 +6,7 @@
         <a class="header__text" href="#experience">Experiencia</a>
         <a class="header__text" href="#education">Educación</a>
         <a class="header__text" href="#skills">Skills</a>
-        <a class="header__btn" href="/login">Ingresa</a>
+        <a class="header__btn" href="/login" *ngIf="!isLogged">Ingresa</a>
+        <a class="header__btn" href="#" (click)="onLogOut()" *ngIf="isLogged">Salir</a>
     </nav>
 </header>

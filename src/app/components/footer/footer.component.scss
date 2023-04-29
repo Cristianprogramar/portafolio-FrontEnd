@@ -4,7 +4,7 @@
 //Contenedor principal
 .footer {
     padding: 2rem 9%;
-    background: v.$color_bgSecondary;
+    background: v.$color_bgPrincipal;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -46,7 +46,7 @@
         padding: .8rem;
         border-radius: .6rem;
         border: .2rem solid v.$color_principal;
-        background: v.$color_principal;
+        background: v.$color_bgSecondary;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -73,11 +73,7 @@
     //Icono
     &__icon {
         font-size: 2.4rem;
-        color: v.$color_bgPrincipal;
+        color: v.$color_text;
         transition: .5s;
-
-        &:hover {
-            color: v.$color_principal;
-        }
     }
 }

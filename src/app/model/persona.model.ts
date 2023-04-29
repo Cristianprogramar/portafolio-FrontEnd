@@ -1,6 +1,6 @@
 export class persona {
 
-    //Defino los parametros de la persona
+    //Defino los parámetros del usuario
     id?: number;
     nombre: String;
     apellido: String;
