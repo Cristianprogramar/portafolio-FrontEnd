@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
     templateUrl: './messenger.component.html',
     styleUrls: ['./messenger.component.scss']
 })
+
 export class MessengerComponent implements AfterViewInit {
     
     constructor(private http: HttpClient) { }

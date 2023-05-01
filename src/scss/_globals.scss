@@ -13,9 +13,10 @@ html {
     }
 
     @include m.mq_phone {
-        font-size: 53%;
+        font-size: 52%;
     }
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
     margin: 0;
@@ -34,19 +35,14 @@ a {
     text-decoration: none;
 }
 
+input {
+    border: none;
+    outline: none;
+}
+
 button {
     text-align: center;
     border: none;
     outline: none;
     cursor: pointer;
-}
-
-section {
-    min-height: 100vh;
-    padding: 10rem 9% 2rem;
-
-    //Reduce el padding
-    @include m.mq_notebook {
-        padding: 10rem 4% 2rem;
-    }
 }

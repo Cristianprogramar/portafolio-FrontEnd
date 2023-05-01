@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-preload',
     templateUrl: './preload.component.html',
     styleUrls: ['./preload.component.scss']
 })
-export class PreloadComponent {
+
+export class PreloadComponent implements OnInit {
 
     loading = true;
 

@@ -1,6 +1,9 @@
 @use '../../../scss/variables' as v;
 @use '../../../scss/mixins' as m;
 
+/* Variables Locales */
+$background_hover: rgba(10, 20, 37, 0.2);
+
 //Contenedor principal
 .mobileBar {
     position: fixed;
@@ -35,7 +38,7 @@
         transition: 0.5s;
 
         &:hover {
-            background: v.$color_principal;
+            background: $background_hover;
         }
     }
 

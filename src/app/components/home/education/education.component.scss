@@ -3,7 +3,7 @@
 
 //Contenedor principal
 .education {
-    padding-bottom: 5rem;
+    @include m.sectionHome();
     background: v.$color_bgSecondary;
     display: flex;
     flex-direction: column;

@@ -5,11 +5,11 @@ chatbox.setAttribute("attribution", "biz_inbox");
 
 //SDK
 window.fbAsyncInit = function() {
-    FB.init({
-        xfbml            : true,
-        version          : 'v16.0'
+    FB.init ({
+        xfbml: true,
+        version: 'v16.0'
     });
-};
+}
 
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];

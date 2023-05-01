@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './mobile-bar.component.html',
   styleUrls: ['./mobile-bar.component.scss']
 })
+
 export class MobileBarComponent {
 
 }

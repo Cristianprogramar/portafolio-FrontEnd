@@ -1,6 +1,17 @@
 @use 'variables' as v;
 
-/* Heading - texto de cada sección */
+/* Sección Home */
+@mixin sectionHome {
+    min-height: 100vh;
+    padding: 10rem 9% 5rem;
+
+    //Se ajusta para mejor diseño
+    @include mq_notebook() {
+        padding: 10rem 4% 5rem;
+    }
+}
+
+/* Sección Heading */
 @mixin heading {
     font-size: 5rem;
     margin-bottom: 3rem;

@@ -44,6 +44,7 @@ import { interceptorProvider } from './service/interceptor-service.service';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        FormsModule,
         NgCircleProgressModule.forRoot({
             radius: 90,
             showUnits: false,
@@ -51,13 +52,12 @@ import { interceptorProvider } from './service/interceptor-service.service';
             animation: true,
             animationDuration: 600,
             titleFontSize: '18',
-            titleColor: "#ededed",
-            outerStrokeColor: "#28b2b6",
-            innerStrokeColor: "#fff",
+            titleColor: '#ededed',
+            outerStrokeColor: '#28b2b6',
+            innerStrokeColor: '#fff',
             outerStrokeWidth: 12,
             innerStrokeWidth: 2
-        }),
-        FormsModule
+        })
     ],
     providers: [
         interceptorProvider

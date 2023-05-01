@@ -31,6 +31,7 @@ $header_transform: scale(1.1);
     //Contenedor de logo AP
     &__containerLogo {
         width: 12rem;
+        transition: .3s;
 
         &:hover {
             transform: $header_transform;
@@ -75,6 +76,7 @@ $header_transform: scale(1.1);
         background-color: v.$color_principal;
         color: v.$color_text;
         text-transform: uppercase;
+        transition: .3s;
 
         &:hover {
             transform: $header_transform;

@@ -3,7 +3,7 @@
 
 //Contenedor principal
 .experience {
-    padding-bottom: 5rem;
+    @include m.sectionHome();
     display: flex;
     flex-direction: column;
     justify-content: center;

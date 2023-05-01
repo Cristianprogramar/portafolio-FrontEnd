@@ -1,69 +1,146 @@
+@use '../../../../scss/variables' as v;
+@use '../../../../scss/mixins' as m;
+
+/* Variables Locales */
+
+/* Mixins Locales */
+@mixin loginBlob() {
+    animation: loginBlob 20s infinite alternate;
+    @keyframes loginBlob {
+        100% {
+            transform: translate(30rem, -5rem) rotate(-10deg);
+            border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+        }
+    }
+}
+
+//Contenedor principal
 .login {
-    margin: 20px auto;
-    width: 300px;
+    @include m.sectionHome();
     display: flex;
     justify-content: center;
     align-items: center;
+
+    //Contenido
+    &__content {
+        position: relative;
+        width: 40rem;
+        height: 45rem;
+        border-radius: 2rem;
+        border: 0.1rem solid rgba(255, 255, 255, .18);
+        box-shadow: 0 .8rem 3.2rem rgba(31, 38, 135, .37);
+        background: rgba(255, 255, 255, .15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .login-screen {
-    background-color: #FFF;
-    padding: 20px;
-    border-radius: 5px
+
+    //Heading
+    &__heading {
+        font-size: 3.2rem;
+        color: v.$color_white;
+        text-align: center;
     }
-    
-    .app-title {
-    text-align: center;
-    color: #777;
+
+    //Contenedor de los inputs
+    &__boxInput {
+        position: relative;
+        width: 32rem;
+        margin: 3rem 0;
+        border-bottom: .2rem solid v.$color_white;
     }
-    
-    .login-form {
-    text-align: center;
+
+    //Texto label
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: .5rem;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        color: v.$color_white;
+        pointer-events: none;
+        transition: .5s;
     }
-    .control-group {
-    margin-bottom: 10px;
+
+    //Inputs
+    &__input {
+        width: 100%;
+        height: 5rem;
+        padding: 0 3.5rem 0 .5rem;
+        font-size: 1.6rem;
+        background: transparent;
+        color: v.$color_white;
+
+        &:focus~label,
+        &:valid~label {
+            top: 0;
+        }
     }
-    
-    input {
-    text-align: center;
-    background-color: #ECF0F1;
-    border: 2px solid transparent;
-    border-radius: 3px;
-    font-size: 16px;
-    font-weight: 200;
-    padding: 10px 0;
-    width: 250px;
-    transition: border .5s;
+
+    //Iconos
+    &__icon {
+        position: absolute;
+        right: .8rem;
+        line-height: 5.7rem;
+        font-size: 2rem;
+        color: v.$color_white;
     }
-    
-    input:focus {
-    border: 2px solid #3498DB;
-    box-shadow: none;
+
+    //Contenedor de volver al inicio
+    &__boxCheck {
+        margin: 1rem 0 1.5rem;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            color: v.$color_white;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
-    
-    .btn {
-      border: 2px solid transparent;
-      background: #3498DB;
-      color: #ffffff;
-      font-size: 16px;
-      line-height: 25px;
-      padding: 10px 0;
-      text-decoration: none;
-      text-shadow: none;
-      border-radius: 3px;
-      box-shadow: none;
-      transition: 0.25s;
-      display: block;
-      width: 250px;
-      margin: 0 auto;
+
+    //Checkbox
+    &__check {
+        margin-right: 0.4rem;
+        accent-color: v.$color_principal;
     }
-    
-    .btn:hover {
-      background-color: #2980B9;
+
+    //Boton
+    &__btn {
+        width: 100%;
+        margin-top: 3rem;
+        height: 5rem;
+        background: v.$color_principal;
+        border-radius: 4rem;
+        font-size: 1.6rem;
+        color: v.$color_white;
+        text-transform: uppercase;
+        transition: .3s;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
     }
-    
-    .login-link {
-      font-size: 12px;
-      color: #444;
-      display: block;
-        margin-top: 12px;
+
+    &__blob {
+        position: absolute;
+        width: 50rem;
+        height: 50rem;
+        background: linear-gradient(180deg, rgba(47, 184, 255, .42) 31.77%, #5c9df1 100%);
+        border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+        transform: translate(-10rem, -5rem) rotate(-90deg);
+        transition: 1s cubic-bezier(.07, .8, .16, 1);
+        @include loginBlob();
+
+        &:hover {
+            width: 52rem;
+            height: 52rem;
+            filter: blur(3rem);
+            box-shadow: inset 0 0 0 .5rem rgba(255, 255, 255, .6), inset 10rem 10rem 0 0 v.$color_principal, inset 20rem 20rem 0 0 #784ba8, inset 30rem 30rem 0 0 #2b86c5;
+        }
     }
+}

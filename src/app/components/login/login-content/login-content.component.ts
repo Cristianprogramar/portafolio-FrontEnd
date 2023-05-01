@@ -19,12 +19,9 @@ export class LoginContentComponent implements OnInit {
     password!: string;
     roles: string[] = [];
     errMsj!: string;
+    errorMessage!: string;
 
-    constructor(
-        private tokenService: TokenService,
-        private authService: AuthService,
-        private router: Router
-    ) { }
+    constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
 
     ngOnInit(): void {
         //Verificar si el usuario ya está conectado
@@ -36,9 +33,16 @@ export class LoginContentComponent implements OnInit {
     }
 
     onLogin(): void {
+        //Agregar validación para campos vacíos
+        if (!this.nombreUsuario || !this.password) {
+            this.isLogginFail = true;
+            this.errorMessage = 'Los campos están vacíos.';
+            return;
+        }
+
         //Crear el modelo de usuario para el inicio de sesión
         this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-        this.authService.login(this.loginUsuario).subscribe({
+        this.authService.login(this.loginUsuario).subscribe ({
             next: (data) => {
                 this.isLogged = true;
                 this.isLogginFail = false;
@@ -47,18 +51,22 @@ export class LoginContentComponent implements OnInit {
                 this.tokenService.setUserName(data.nombreUsuario);
                 this.tokenService.setAuthorities(data.authorities);
                 this.roles = data.authorities;
-                //Redirigir a la página principal - recargo para evitar fallas en el preload
-                this.router.navigate(['']).then(() => {
-                    window.location.reload();
-                });
+                //Redirigir a la página principal
+                this.router.navigate(['']).then(() => { window.location.reload(); });
             },
+
             //Función que se ejecuta si falla el inicio de sesión
             error: (err) => {
                 this.isLogged = false;
                 this.isLogginFail = true;
-                this.errMsj = err.error.mensaje;
-                console.log(this.errMsj);
+                this.errorMessage = err.error.mensaje;
             }
         });
+    }
+
+    //Elimina el error al borrar en el input
+    clearErrorMessage() {
+        this.isLogginFail = false;
+        this.errorMessage = '';
     }
 }

@@ -3,7 +3,7 @@
 
 //Contenedor principal
 .skills {
-    padding-bottom: 7rem;
+    @include m.sectionHome();
     display: flex;
     flex-direction: column;
     justify-content: center;
