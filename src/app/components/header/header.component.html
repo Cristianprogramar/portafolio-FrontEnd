@@ -1,12 +1,12 @@
 <header class="header">
-    <a class="header__containerLogo" href="#home"><img class="header__logo" src="../../../assets/img/logos/logoAP_1.png" alt="Logo AP"></a>
+    <a class="header__boxLogo" href="#home"><img class="header__logo" src="../../../assets/img/logos/logoAP.png" alt="Logo AP"></a>
     <nav class="header__navbar">
         <a class="header__text" href="#home">Inicio</a>
         <a class="header__text" href="#about">Sobre mi</a>
         <a class="header__text" href="#experience">Experiencia</a>
         <a class="header__text" href="#education">Educación</a>
         <a class="header__text" href="#skills">Skills</a>
-        <a class="header__btn" href="/login" *ngIf="!isLogged">Ingresa</a>
+        <a class="header__btn" href="/login" *ngIf="!isLogged">Ingresar</a>
         <a class="header__btn" href="#" (click)="onLogOut()" *ngIf="isLogged">Salir</a>
     </nav>
 </header>

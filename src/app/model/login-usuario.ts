@@ -1,5 +1,5 @@
 export class LoginUsuario {
-
+    //Almaceno el nombre de usuario y la contraseña
     nombreUsuario: string;
     password: string;
 

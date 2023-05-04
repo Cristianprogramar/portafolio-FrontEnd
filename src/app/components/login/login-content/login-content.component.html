@@ -4,20 +4,20 @@
         <form #loginForm="ngForm" (ngSubmit)="onLogin()">
             <h2 class="login__heading">ARG Programa</h2>
             <div class="login__boxInput">
-                <span class="login__icon"><i class='bx bx-user'></i></span>
-                <input class="login__input" id="nombreUsuario" name="nombreUsuario" type="text" [(ngModel)]="nombreUsuario" autocomplete="off" required (input)="clearErrorMessage()">
+                <span class="login__icon"><i class="bx bx-user"></i></span>
+                <input class="login__input" id="nombreUsuario" name="nombreUsuario" type="text" [(ngModel)]="nombreUsuario" autocomplete="off" (input)="clearErrorMessage()" required>
                 <label class="login__label" for="nombreUsuario">Usuario</label>
             </div>
             <div class="login__boxInput">
-                <span class="login__icon"><i class='bx bx-lock-alt'></i></span>
-                <input class="login__input" id="password" name="password" type="password" [(ngModel)]="password" required (input)="clearErrorMessage()">
+                <span class="login__icon"><i class="bx bx-lock-alt"></i></span>
+                <input class="login__input" id="password" name="password" type="password" [(ngModel)]="password" (input)="clearErrorMessage()" required>
                 <label class="login__label" for="password">Contraseña</label>
             </div>
             <div class="login__boxCheck">
                 <label><input class="login__check" type="checkbox">Recordar</label>
-                <a href="/">Regresar al inicio</a>
+                <a class="login__back" href="/">Regresar al inicio</a>
             </div>
-            <div id="error-message" style="display: flex; justify-content: center; align-items: center; font-size: 1.5rem; margin-top: 3rem; color: #ff202f; font-weight: 600; transition: 10s linear;" *ngIf="isLogginFail"><i style="margin-right: .3rem;" class='bx bxs-error-alt'></i>{{ errorMessage }}</div>
+            <div class="login__boxError" *ngIf="isLogginFail"><i class="bx bxs-error-alt login__iconError"></i>{{errMsj}}</div>
             <button class="login__btn" type="submit">Ingresar</button>
         </form>
     </div>

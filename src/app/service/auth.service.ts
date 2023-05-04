@@ -10,18 +10,17 @@ import { JwtDto } from '../model/jwt-dto';
 })
 
 export class AuthService {
-
-    //Hago la petición al back y traigo los usuarios registrados
     authURL = 'http://localhost:8080/auth/';
-    isLoggedIn: any;
 
     constructor(private httpClient: HttpClient) { }
 
+    //Crear un nuevo usuario en la base de datos
     public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-        return this.httpClient.post<any>(this.authURL + 'new', nuevoUsuario)
+        return this.httpClient.post<any>(this.authURL + 'new', nuevoUsuario);
     }
 
+    //Iniciar sesión con un usuario existente
     public login(loginUsuario: LoginUsuario): Observable<JwtDto> {
-        return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario)
+        return this.httpClient.post<JwtDto>(this.authURL + 'login', loginUsuario);
     }
 }

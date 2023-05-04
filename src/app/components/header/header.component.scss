@@ -2,7 +2,7 @@
 @use '../../../scss/mixins' as m;
 
 /* Variables locales */
-$header_transform: scale(1.1);
+$transform: scale(1.1);
 
 //Contenedor principal
 .header {
@@ -15,7 +15,7 @@ $header_transform: scale(1.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: .3s;
+    transition: .5s;
     z-index: 100;
 
     //Reduce el padding
@@ -29,12 +29,12 @@ $header_transform: scale(1.1);
     }
 
     //Contenedor de logo AP
-    &__containerLogo {
+    &__boxLogo {
         width: 12rem;
-        transition: .3s;
+        transition: .5s;
 
         &:hover {
-            transform: $header_transform;
+            transform: $transform;
         }
     }
 
@@ -55,7 +55,7 @@ $header_transform: scale(1.1);
         font-weight: 500;
         font-size: 1.7rem;
         color: v.$color_text;
-        transition: .3s;
+        transition: .5s;
     
         &:hover {
             color: v.$color_principal;
@@ -76,10 +76,10 @@ $header_transform: scale(1.1);
         background-color: v.$color_principal;
         color: v.$color_text;
         text-transform: uppercase;
-        transition: .3s;
+        transition: .5s;
 
         &:hover {
-            transform: $header_transform;
+            transform: $transform;
         }
     }
 }

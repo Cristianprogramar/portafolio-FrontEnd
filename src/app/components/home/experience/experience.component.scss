@@ -1,6 +1,9 @@
 @use '../../../../scss/variables' as v;
 @use '../../../../scss/mixins' as m;
 
+/* Variables Locales */
+$transform: scale(1.2);
+
 //Contenedor principal
 .experience {
     @include m.sectionHome();
@@ -8,27 +11,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 2rem;
 
     //Texto de la sección
     &__heading {
         @include m.heading();
     }
 
-    //Contenedor de las cajas
+    //Contenedor de la sección
     &__container {
-        width: 75%;
-
-        @include m.mq_tablet{
-            width: 90%;
-        }
-    
-        @include m.mq_notebook {
-            width: 100%;
-        }
+        max-width: 80rem;
+        margin: 2rem 0 3rem;
     }
 
-    //Barra
+    //Barra con circulos
     &__bar {
         border-left: .2rem solid v.$color_principal;
     }
@@ -65,7 +61,8 @@
         overflow: hidden;
         z-index: 1;
 
-        @include m.mq_tablet {
+        //Ajusta el padding
+        @include m.mq_phone {
             padding: 1.5rem;
         }
 
@@ -84,6 +81,13 @@
         &:hover::before {
             width: 100%;
         }
+
+        //Muestra el hover para editar
+        &:hover .experience__hover {
+            opacity: 1;
+            visibility: visible;
+            transition: .5s;
+        }
     }
 
     //Subtítulo
@@ -95,5 +99,61 @@
     &__description {
         padding-top: .5rem;
         font-size: 1.6rem;
+    }
+
+    //Bloque de editar
+    &__hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        background: v.$color_bgSecondary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    //Contenedor de los iconos y textos
+    &__boxHover {
+        padding: 0.5rem 1.5rem;
+        margin: 0 1.5rem;
+        border-radius: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            transform: $transform;
+        }
+    }
+
+    //Iconos del hover
+    &__iconHover {
+        font-size: 4rem;
+    }
+
+    //Textos del hover
+    &__textHover {
+        font-size: 1.4rem;
+    }
+
+    //Contenedor del botón
+    &__edit {
+        position: relative;
+        width: 15rem;
+        height: 5rem;
+        display: inline-block
+    }
+
+    //Botón de edición
+    &__btn {
+        @include m.buttonPrincipal();
     }
 }

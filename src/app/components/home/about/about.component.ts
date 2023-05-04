@@ -7,11 +7,11 @@ import { PersonaService } from 'src/app/service/persona.service';
     templateUrl: './about.component.html',
     styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
 
+export class AboutComponent implements OnInit {
     persona: persona = new persona("", "", "");
 
-    constructor(public personaService: PersonaService) {}
+    constructor(public personaService: PersonaService) { }
 
     //Traigo el nombre de la base de datos
     ngOnInit(): void {

@@ -11,7 +11,6 @@ import { TokenService } from 'src/app/service/token.service';
 })
 
 export class LoginContentComponent implements OnInit {
-
     isLogged = false;
     isLogginFail = false;
     loginUsuario!: LoginUsuario;
@@ -19,12 +18,11 @@ export class LoginContentComponent implements OnInit {
     password!: string;
     roles: string[] = [];
     errMsj!: string;
-    errorMessage!: string;
 
     constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
 
+    //Verificar si el usuario ya está conectado
     ngOnInit(): void {
-        //Verificar si el usuario ya está conectado
         if (this.tokenService.getToken()) {
             this.isLogged = true;
             this.isLogginFail = false;
@@ -32,11 +30,11 @@ export class LoginContentComponent implements OnInit {
         }
     }
 
+    //Agregar validación para campos vacíos
     onLogin(): void {
-        //Agregar validación para campos vacíos
         if (!this.nombreUsuario || !this.password) {
             this.isLogginFail = true;
-            this.errorMessage = 'Los campos están vacíos.';
+            this.errMsj = 'Los campos están vacíos.';
             return;
         }
 
@@ -46,20 +44,18 @@ export class LoginContentComponent implements OnInit {
             next: (data) => {
                 this.isLogged = true;
                 this.isLogginFail = false;
-                // Guardar el token, nombre de usuario y roles en el servicio Token
                 this.tokenService.setToken(data.token);
                 this.tokenService.setUserName(data.nombreUsuario);
                 this.tokenService.setAuthorities(data.authorities);
                 this.roles = data.authorities;
-                //Redirigir a la página principal
-                this.router.navigate(['']).then(() => { window.location.reload(); });
+                this.router.navigate(['']).then(() => {window.location.reload()});
             },
 
             //Función que se ejecuta si falla el inicio de sesión
             error: (err) => {
                 this.isLogged = false;
                 this.isLogginFail = true;
-                this.errorMessage = err.error.mensaje;
+                this.errMsj = err.error.mensaje;
             }
         });
     }
@@ -67,6 +63,5 @@ export class LoginContentComponent implements OnInit {
     //Elimina el error al borrar en el input
     clearErrorMessage() {
         this.isLogginFail = false;
-        this.errorMessage = '';
     }
 }

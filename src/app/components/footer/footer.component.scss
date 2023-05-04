@@ -41,7 +41,7 @@
     }
 
     //Contenedor del icono
-    &__containerIcon {
+    &__boxIcon {
         position: relative;
         padding: .8rem;
         border-radius: .6rem;
@@ -74,6 +74,5 @@
     &__icon {
         font-size: 2.4rem;
         color: v.$color_text;
-        transition: .5s;
     }
 }

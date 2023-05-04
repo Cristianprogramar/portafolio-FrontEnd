@@ -15,7 +15,7 @@ $color_linkedin: #0077B5;
         0%, 10%, 100% {
             background-position: -40rem 0;
         }
-        65%, 85%{
+        65%, 85% {
             background-position: 0 0;
         }
     }
@@ -30,7 +30,7 @@ $color_linkedin: #0077B5;
         }
         65%, 78%, 85% {
             width: 100%;
-            opacity: 1; 
+            opacity: 1;
         }
         75%, 81% {
             opacity: 0;
@@ -45,7 +45,7 @@ $color_linkedin: #0077B5;
     padding: 0 9%;
     display: flex;
     align-items: center;
-    background: url(../../../../assets/img/general/wall.webp) no-repeat;
+    background: url(../../../../assets/img/general/banner.webp) no-repeat;
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -82,13 +82,13 @@ $color_linkedin: #0077B5;
 
     //Texto principal
     &__textPrincipal {
+        line-height: 1.3;
         font-weight: 700;
         font-size: 5.6rem;
-        line-height: 1.3;
     }
 
     //Contenedor del texto secundario
-    &__containerText {
+    &__boxText {
         position: relative;
         width: 38rem;
     }
@@ -125,7 +125,7 @@ $color_linkedin: #0077B5;
     }
 
     //Contenedor de los botones
-    &__containerBtn {
+    &__boxBtn {
         position: relative;
         width: 34.5rem;
         height: 5rem;
@@ -135,36 +135,9 @@ $color_linkedin: #0077B5;
 
     //Botones
     &__btn {
-        position: relative;
-        width: 15rem;
-        height: 100%;
-        border: .2rem solid v.$color_principal;
-        border-radius: .8rem;
-        letter-spacing: .1rem;
-        font-weight: 600;
-        font-size: 1.8rem;
-        background: v.$color_principal;
-        color: v.$color_bgPrincipal;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        transition: .5s;
-        z-index: 1;
+        @include m.buttonPrincipal();
 
-        &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: v.$color_bgPrincipal;
-            transition: .5s;
-            z-index: -1;
-        }
-
-       &:nth-child(2) {
+        &:nth-child(2) {
             background: transparent;
             color: v.$color_principal;
 
@@ -175,26 +148,18 @@ $color_linkedin: #0077B5;
             &:hover {
                 color: v.$color_bgPrincipal;
             }
-       }
-
-       &:hover {
-            color: v.$color_principal;
-
-            &::before {
-                width: 100%;
-            }
-       }
+        }
     }
 
     //Contenedor de las redes sociales
-    &__containerSocial {
+    &__boxSocial {
         position: absolute;
         width: 17rem;
         bottom: 4rem;
         display: flex;
         justify-content: space-between;
 
-        @include m.mq_tablet{
+        @include m.mq_tablet {
             margin-bottom: 7rem;
         }
     }
@@ -247,4 +212,3 @@ $color_linkedin: #0077B5;
         }
     }
 }
-

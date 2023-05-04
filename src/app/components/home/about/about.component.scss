@@ -3,7 +3,7 @@
 
 /* Mixins Locales */
 @mixin aboutSpinner() {
-    animation: aboutSpinner 8s linear infinite;
+    animation: aboutSpinner 5s linear infinite;
     @keyframes aboutSpinner {
         100% {
             transform: translate(-50%, -50%) rotate(360deg);
@@ -27,7 +27,7 @@
     }
 
     //Contenedor de la imagen
-    &__containerImg {
+    &__boxImg {
         position: relative;
         width: 25rem;
         height: 25rem;
@@ -76,5 +76,18 @@
     &__description {
         font-size: 1.6rem;
         margin: 2rem 0 3rem;
+    }
+
+    //Contenedor del botón
+    &__edit {
+        position: relative;
+        width: 15rem;
+        height: 5rem;
+        display: inline-block
+    }
+
+    //Botón de edición
+    &__btn {
+        @include m.buttonPrincipal();
     }
 }

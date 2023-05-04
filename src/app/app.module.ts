@@ -21,6 +21,7 @@ import { PreloadComponent } from './components/preload/preload.component';
 import { ProjectsComponent } from './components/home/projects/projects.component';
 import { LoginContentComponent } from './components/login/login-content/login-content.component';
 import { interceptorProvider } from './service/interceptor-service.service';
+import { NewExperienceComponent } from './components/home/experience/new-experience/new-experience.component';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,8 @@ import { interceptorProvider } from './service/interceptor-service.service';
         EducationComponent,
         PreloadComponent,
         ProjectsComponent,
-        LoginContentComponent
+        LoginContentComponent,
+        NewExperienceComponent
     ],
     imports: [
         BrowserModule,
@@ -64,4 +66,5 @@ import { interceptorProvider } from './service/interceptor-service.service';
     ],
     bootstrap: [AppComponent]
 })
+
 export class AppModule { }

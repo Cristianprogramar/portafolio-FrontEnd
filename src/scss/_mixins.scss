@@ -22,7 +22,65 @@
     }
 }
 
-/** Media Queries **/
+/* Botón Principal */
+@mixin buttonPrincipal {
+    position: relative;
+    width: 15rem;
+    height: 100%;
+    border: .2rem solid v.$color_principal;
+    border-radius: .8rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    background: v.$color_principal;
+    color: v.$color_bgPrincipal;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .5s;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: v.$color_bgPrincipal;
+        transition: .5s;
+        z-index: -1;
+    }
+
+    &:hover {
+        color: v.$color_principal;
+
+        &::before {
+            width: 100%;
+        }
+    }
+}
+
+/* Efecto Blob */
+@mixin blob {
+    position: absolute;
+    width: 50rem;
+    height: 50rem;
+    transform: translate(-10rem, -5rem) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+    background: linear-gradient(180deg, rgba(47, 184, 255, .42) 31.77%, v.$color_principal 100%);
+    transition: 1s cubic-bezier(.7, .8, .16, 1);
+
+    &:hover {
+        filter: blur(3rem);
+        width: 52rem;
+        height: 52rem;
+        box-shadow: inset 0 0 0 .5rem rgba(255, 255, 255, .6), inset 10rem 10rem 0 0 v.$color_principal, inset 20rem 20rem 0 0 #784ba8, inset 30rem 30rem 0 0 #2b86c5;
+    }
+}
+
+/* Media Queries */
 @mixin mq_phone {
     @media (max-width: v.$mq_phone) {
         @content;

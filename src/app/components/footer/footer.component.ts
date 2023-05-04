@@ -7,8 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class FooterComponent {
-
-    //Obtenemos la fecha actual y la importamos al footer
+    //Obtengo la fecha actual y la importo al footer
     getDate() {
         const months = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
         const date = new Date();

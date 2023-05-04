@@ -4,6 +4,7 @@
 //Contenedor principal
 .skills {
     @include m.sectionHome();
+    background: v.$color_bgSecondary;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,5 +1,4 @@
 export class NuevoUsuario {
-
     //Representamos los datos del usuario
     nombre!: string;
     nombreUsuario!: string;

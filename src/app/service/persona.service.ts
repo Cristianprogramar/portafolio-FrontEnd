@@ -8,12 +8,11 @@ import { persona } from '../model/persona.model';
 })
 
 export class PersonaService {
-
-    //Mediante este servicio traigo del back mi usuario
     URL = 'http://localhost:8080/user/';
 
     constructor(private http: HttpClient) { }
 
+    //Obtener la información del usuario
     public getPersona(): Observable<persona> {
         return this.http.get<persona>(this.URL+ 'get/profile');
     }

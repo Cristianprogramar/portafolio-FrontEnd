@@ -7,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PreloadComponent implements OnInit {
-
     loading = true;
 
-    //Una vez que carga el sitio quita el preload
     ngOnInit(): void {
-        window.onload = () => {
-            this.loading = false;
-        };
+        //Se quita el preload
+        window.onload = () => this.loading = false;
+
+        window.addEventListener('popstate', () => {
+            if (document.readyState === 'complete') {
+                this.loading = false;
+            }
+        });
     }
 }

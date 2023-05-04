@@ -8,14 +8,13 @@ import { TokenService } from 'src/app/service/token.service';
 })
 
 export class HeaderComponent implements OnInit {
-
-    constructor(private renderer: Renderer2, private el: ElementRef, private tokenService: TokenService) {}
-
     isLogged = false;
+
+    constructor(private renderer: Renderer2, private el: ElementRef, private tokenService: TokenService) { }
 
     //Header sticky
     @HostListener('window:scroll', ['$event'])
-    onWindowScroll(event: { target: { documentElement: { scrollTop: number; }; }; }) {
+    onWindowScroll(event: { target: { documentElement: { scrollTop: number } } }) {
         const header = this.el.nativeElement.querySelector('header');
         this.renderer.addClass(header, '--sticky');
         if (event.target.documentElement.scrollTop < 100) {
@@ -25,11 +24,9 @@ export class HeaderComponent implements OnInit {
 
     //Detecta el TOKEN
     ngOnInit(): void {
-        if(this.tokenService.getToken()) {
+        if (this.tokenService.getToken()) {
             this.isLogged = true;
-        }
-
-        else {
+        } else {
             this.isLogged = false;
         }
     }

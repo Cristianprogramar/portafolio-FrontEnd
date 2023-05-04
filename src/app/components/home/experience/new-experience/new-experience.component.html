@@ -1,0 +1,15 @@
+<div>
+    <div>
+        <div>
+            <form (ngSubmit)="onCreate()" #f="ngForm" novalidate>
+                <label for="nameE">Nombre</label>
+                <input type="text" id="nameE" name="nameE" [(ngModel)]="nameE" required>
+
+                <label for="descriptionE">Descripcion</label>
+                <input type="text" id="descriptionE" name="descriptionE" [(ngModel)]="descriptionE">
+
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+    </div>
+</div>

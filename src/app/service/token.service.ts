@@ -8,46 +8,50 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
     providedIn: 'root'
 })
 
-//Guardo el TOKEN en el localstorage, luego de 10min expira
 export class TokenService {
     roles: Array<string> = [];
 
-    constructor() { }
-
+    //Guardar el token
     public setToken(token: string): void {
         window.localStorage.removeItem(TOKEN_KEY);
         window.localStorage.setItem(TOKEN_KEY, token);
     }
 
+    //Obtener el token
     public getToken(): string {
         return localStorage.getItem(TOKEN_KEY)!;
     }
 
-    public setUserName(userName: string):void {
+    //Guardar el nombre de usuario
+    public setUserName(userName: string): void {
         window.localStorage.removeItem(USERNAME_KEY);
         window.localStorage.setItem(USERNAME_KEY, userName);
     }
 
+    //Obtener el nombre de usuario
     public getUserName(): string {
         return localStorage.getItem(USERNAME_KEY)!;
     }
 
-    public setAuthorities(authorities: string[]):void{
+    //Guardar los roles
+    public setAuthorities(authorities: string[]): void {
         window.localStorage.removeItem(AUTHORITIES_KEY);
         window.localStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
     }
 
-    public getAuthorities(): string[]{
+    //Obtener los roles
+    public getAuthorities(): string[] {
         this.roles = [];
-        if(localStorage.getItem(AUTHORITIES_KEY)){
-          JSON.parse(localStorage.getItem(AUTHORITIES_KEY)!).forEach((authority:any) => {
-            this.roles.push(authority.authority);
-          });
+        if (localStorage.getItem(AUTHORITIES_KEY)) {
+            JSON.parse(localStorage.getItem(AUTHORITIES_KEY)!).forEach((authority: any) => {
+                this.roles.push(authority.authority);
+            });
         }
         return this.roles;
     }
 
-    public logOut(): void{
+    //Limpiar todos los elementos del almacenamiento local al salir
+    public logOut(): void {
         window.localStorage.clear();
     }
 }

@@ -8,14 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class MessengerComponent implements AfterViewInit {
-    
     constructor(private http: HttpClient) { }
 
-    //Hago una petición HTTP y obtengo el script del SDK de Facebook
+    //Hago una petición HTTP y obtengo el SDK de Facebook
     ngAfterViewInit() {
-        this.http.get('../../../assets/js/messenger.js', { responseType: 'text' })
+        this.http.get('../../../assets/js/messenger.js', {responseType: 'text'})
         .subscribe((scriptContent: string) => {
-            const scriptMessenger = document.createElement('script');
+            const scriptMessenger = document.createElement('scriptMessenger');
             scriptMessenger.innerHTML = scriptContent;
             document.body.appendChild(scriptMessenger);
         });

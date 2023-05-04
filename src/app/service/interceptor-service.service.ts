@@ -8,13 +8,13 @@ import { Observable } from 'rxjs';
 })
 
 export class InterceptorServiceService {
+    constructor(private tokenService: TokenService) { }
 
-    constructor(private tokenService: TokenService) {}
-
+    //Interceptar cada solicitud HTTP y agregar el token de autenticación al encabezado
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let intReq = req;
         const token = this.tokenService.getToken();
-        if(token != null) {
+        if (token != null) {
             intReq = req.clone({
                 headers: req.headers.set('Authorization', 'Bearer' + token)
             });
@@ -23,6 +23,7 @@ export class InterceptorServiceService {
     }
 }
 
+//Se exporta a app.module.ts
 export const interceptorProvider = [{
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorServiceService,

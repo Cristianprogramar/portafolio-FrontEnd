@@ -10,11 +10,9 @@ import { saveAs } from 'file-saver'
 })
 
 export class BannerComponent implements OnInit {
-
     persona: persona = new persona("", "", "");
 
-    constructor(public personaService: PersonaService) {}
-
+    constructor(public personaService: PersonaService) { }
 
     //Traigo el nombre de la base de datos
     ngOnInit(): void {
