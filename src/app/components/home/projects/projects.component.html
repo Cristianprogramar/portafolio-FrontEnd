@@ -1,0 +1,24 @@
+<section class="projects" id="projects">
+    <h2 class="projects__heading">Mis <span>Proyectos</span></h2>
+    <div class="projects__container">
+        <div class="projects__bar">
+            <div class="projects__box" *ngFor="let projects of pro">
+                <div class="projects__content">
+                    <h3 class="projects__subtitle">{{projects.nameP}}</h3>
+                    <p class="projects__description">{{projects.descriptionP}}</p>
+                    <div class="projects__hover" *ngIf="isLogged">
+                        <a class="projects__boxHover" href="editpro/{{projects.id}}">
+                            <i class="bx bx-pencil projects__iconHover"></i>
+                            <span class="projects__textHover">Editar</span>
+                        </a>
+                        <a class="projects__boxHover" role="button" (click)="delete(projects.id)">
+                            <i class="bx bx-message-alt-x projects__iconHover"></i>
+                            <span class="projects__textHover">Eliminar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="projects__edit" *ngIf="isLogged"><a class="projects__btn" href="newpro">Crear</a></div>
+</section>

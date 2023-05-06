@@ -23,6 +23,10 @@ import { LoginContentComponent } from './components/login/login-content/login-co
 import { interceptorProvider } from './service/interceptor-service.service';
 import { NewExperienceComponent } from './components/home/experience/new-experience/new-experience.component';
 import { EditExperienceComponent } from './components/home/experience/edit-experience/edit-experience.component';
+import { NewEducationComponent } from './components/home/education/new-education/new-education.component';
+import { EditEducationComponent } from './components/home/education/edit-education/edit-education.component';
+import { NewProjectsComponent } from './components/home/projects/new-projects/new-projects.component';
+import { EditProjectsComponent } from './components/home/projects/edit-projects/edit-projects.component';
 
 @NgModule({
     declarations: [
@@ -42,7 +46,11 @@ import { EditExperienceComponent } from './components/home/experience/edit-exper
         ProjectsComponent,
         LoginContentComponent,
         NewExperienceComponent,
-        EditExperienceComponent
+        EditExperienceComponent,
+        NewEducationComponent,
+        EditEducationComponent,
+        NewProjectsComponent,
+        EditProjectsComponent
     ],
     imports: [
         BrowserModule,

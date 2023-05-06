@@ -1,0 +1,159 @@
+@use '../../../../scss/variables' as v;
+@use '../../../../scss/mixins' as m;
+
+/* Variables Locales */
+$transform: scale(1.2);
+
+//Contenedor principal
+.education {
+    @include m.sectionHome();
+    background: v.$color_bgSecondary;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    //Texto de la sección
+    &__heading {
+        @include m.heading();
+    }
+
+    //Contenedor de la sección
+    &__container {
+        max-width: 80rem;
+        margin: 2rem 0 3rem;
+    }
+
+    //Barra con circulos
+    &__bar {
+        border-left: .2rem solid v.$color_principal;
+    }
+
+    //Caja principal
+    &__box {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        //Agrega los puntos a la barra
+        &::before {
+            content: '';
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            top: 0;
+            left: -1.1rem;
+            border-radius: 50%;
+            background: v.$color_principal;
+        }
+    }
+
+    //Contenido de la caja
+    &__content {
+        position: relative;
+        border-radius: .6rem;
+        border: .2rem solid v.$color_principal;
+        padding: 3rem 1.5rem;
+        overflow: hidden;
+        z-index: 1;
+
+        //Ajusta el padding
+        @include m.mq_phone {
+            padding: 1.5rem;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: v.$color_bgPrincipal;
+            transition: .5s;
+            z-index: -1;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+
+        //Muestra el hover para editar
+        &:hover .education__hover {
+            opacity: 1;
+            visibility: visible;
+            transition: .5s;
+        }
+    }
+
+    //Subtítulo
+    &__subtitle {
+        font-size: 2rem;
+    }
+
+    //Descripción
+    &__description {
+        padding-top: .5rem;
+        font-size: 1.6rem;
+    }
+
+    //Bloque de editar
+    &__hover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        background: v.$color_bgPrincipal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    //Contenedor de los iconos y textos
+    &__boxHover {
+        padding: 0.5rem 1.5rem;
+        margin: 0 1.5rem;
+        color: v.$color_text;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: .5s;
+
+        &:hover {
+            transform: $transform;
+        }
+    }
+
+    //Iconos del hover
+    &__iconHover {
+        font-size: 4rem;
+    }
+
+    //Textos del hover
+    &__textHover {
+        font-size: 1.4rem;
+    }
+
+    //Contenedor del botón
+    &__edit {
+        position: relative;
+        width: 15rem;
+        height: 5rem;
+        display: inline-block
+    }
+
+    //Botón de edición
+    &__btn {
+        @include m.buttonPrincipal();
+    }
+}

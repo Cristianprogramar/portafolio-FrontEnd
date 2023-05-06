@@ -8,8 +8,8 @@ $transform: scale(1.1);
 
 /* Mixins Locales */
 @mixin animationBlob() {
-    animation: loginBlob 20s infinite alternate;
-    @keyframes loginBlob {
+    animation: newExperienceBlob 20s infinite alternate;
+    @keyframes newExperienceBlob {
         100% {
             transform: translate(30rem, -5rem) rotate(-10deg);
             border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
@@ -55,7 +55,7 @@ $transform: scale(1.1);
         position: relative;
         width: 32rem;
         margin: 3rem 0;
-        border-bottom: .2rem solid v.$color_white;
+        border-bottom: .2rem solid v.$color_text;
     }
 
     //Texto label
@@ -76,7 +76,7 @@ $transform: scale(1.1);
         height: 5rem;
         font-size: 1.6rem;
         background: transparent;
-        color: v.$color_white;
+        color: v.$color_text;
 
         &:focus~label,
         &:valid~label {
@@ -90,14 +90,14 @@ $transform: scale(1.1);
         right: .8rem;
         line-height: 5.7rem;
         font-size: 2rem;
-        color: v.$color_white;
+        color: v.$color_text;
     }
 
     //Volver al inicio
     &__back {
         margin: 1rem 0 1.5rem;
         font-size: 1.5rem;
-        color: v.$color_white;
+        color: v.$color_text;
 
         &:hover {
             text-decoration: underline;

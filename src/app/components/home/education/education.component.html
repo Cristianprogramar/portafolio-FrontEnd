@@ -1,0 +1,24 @@
+<section class="education" id="education">
+    <h2 class="education__heading">Mi <span>Educación</span></h2>
+    <div class="education__container">
+        <div class="education__bar">
+            <div class="education__box" *ngFor="let education of edu">
+                <div class="education__content">
+                    <h3 class="education__subtitle">{{education.nameEdu}}</h3>
+                    <p class="education__description">{{education.descriptionEdu}}</p>
+                    <div class="education__hover" *ngIf="isLogged">
+                        <a class="education__boxHover" href="editedu/{{education.id}}">
+                            <i class="bx bx-pencil education__iconHover"></i>
+                            <span class="education__textHover">Editar</span>
+                        </a>
+                        <a class="education__boxHover" role="button" (click)="delete(education.id)">
+                            <i class="bx bx-message-alt-x education__iconHover"></i>
+                            <span class="education__textHover">Eliminar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="education__edit" *ngIf="isLogged"><a class="education__btn" href="newedu">Crear</a></div>
+</section>

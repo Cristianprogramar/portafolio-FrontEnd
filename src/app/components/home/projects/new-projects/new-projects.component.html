@@ -1,0 +1,19 @@
+<section class="newProjects">
+    <div class="newProjects__blob"></div>
+    <div class="newProjects__content">
+        <form #f="ngForm" (ngSubmit)="onCreate()">
+            <h2 class="newProjects__heading">Proyectos</h2>
+            <div class="newProjects__boxInput">
+                <input class="newProjects__input" id="nameP" name="nameP" type="text" [(ngModel)]="nameP" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="newProjects__label" for="nameP">Nombre</label>
+            </div>
+            <div class="newProjects__boxInput">
+                <input class="newProjects__input" id="descriptionP" name="descriptionP" type="text" [(ngModel)]="descriptionP" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="newProjects__label" for="descriptionP">Descripción</label>
+            </div>
+            <a class="newProjects__back" href="/">Regresar al inicio</a>
+            <div class="newProjects__boxError" *ngIf="errBase"><i class="bx bxs-error-alt newProjects__iconError"></i>{{errMsj}}</div>
+            <button class="newProjects__btn" type="submit">Agregar</button>
+        </form>
+    </div>
+</section>

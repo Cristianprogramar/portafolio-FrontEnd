@@ -8,8 +8,8 @@ $transform: scale(1.1);
 
 /* Mixins Locales */
 @mixin animationBlob() {
-    animation: editExperienceBlob 20s infinite alternate;
-    @keyframes editExperienceBlob {
+    animation: newProjectsBlob 20s infinite alternate;
+    @keyframes newProjectsBlob {
         100% {
             transform: translate(30rem, -5rem) rotate(-10deg);
             border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
@@ -18,7 +18,7 @@ $transform: scale(1.1);
 }
 
 //Contenedor principal
-.editExperience {
+.newProjects {
     @include m.sectionHome();
     display: flex;
     justify-content: center;

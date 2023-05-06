@@ -40,7 +40,7 @@ export class LoginContentComponent implements OnInit {
 
         //Crear el modelo de usuario para el inicio de sesión
         this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-        this.authService.login(this.loginUsuario).subscribe ({
+        this.authService.login(this.loginUsuario).subscribe({
             next: (data) => {
                 this.isLogged = true;
                 this.isLogginFail = false;

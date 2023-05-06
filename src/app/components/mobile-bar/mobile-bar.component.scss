@@ -17,12 +17,12 @@ $background_hover: rgba(10, 20, 37, 0.2);
     //Se muestra
     @include m.mq_tablet{
         display: flex;
-        padding: 0 15%;
+        padding: 0 10%;
     }
 
     //Ajusta el padding
     @include m.mq_phone {
-        padding: 0 3%;
+        padding: 0;
     }
 
     //Bloque

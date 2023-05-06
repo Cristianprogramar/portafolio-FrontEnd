@@ -1,10 +1,12 @@
 /* Módulos Completados */
 
 Footer
-Header
 Messenger
-Login
+Header
 Mobile-bar
 Preload
+Login
 Banner
 Experience
+Education
+Projects

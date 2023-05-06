@@ -1,0 +1,19 @@
+<section class="editProjects" *ngIf="pro">
+    <div class="editProjects__blob"></div>
+    <div class="editProjects__content">
+        <form #f="ngForm" (ngSubmit)="onUpdate()">
+            <h2 class="editProjects__heading">Proyectos</h2>
+            <div class="editProjects__boxInput">
+                <input class="editProjects__input" id="nameP" name="nameP" type="text" [(ngModel)]="pro.nameP" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="editProjects__label" for="nameP">Nombre</label>
+            </div>
+            <div class="editProjects__boxInput">
+                <input class="editProjects__input" id="descriptionP" name="descriptionP" type="text" [(ngModel)]="pro.descriptionP" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="editProjects__label" for="descriptionP">Descripción</label>
+            </div>
+            <a class="editProjects__back" href="/">Regresar al inicio</a>
+            <div class="editProjects__boxError" *ngIf="errBase"><i class="bx bxs-error-alt newProjects__iconError"></i>{{errMsj}}</div>
+            <button class="editProjects__btn" type="submit">Editar</button>
+        </form>
+    </div>
+</section>
