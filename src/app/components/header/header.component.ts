@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
     //Header sticky
     @HostListener('window:scroll', ['$event'])
-    onWindowScroll(event: { target: { documentElement: { scrollTop: number } } }) {
+    onWindowScroll(event: { target: {documentElement: {scrollTop: number}}}) {
         const header = this.el.nativeElement.querySelector('header');
         this.renderer.addClass(header, '--sticky');
         if (event.target.documentElement.scrollTop < 100) {

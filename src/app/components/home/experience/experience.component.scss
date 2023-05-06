@@ -122,11 +122,10 @@ $transform: scale(1.2);
     &__boxHover {
         padding: 0.5rem 1.5rem;
         margin: 0 1.5rem;
-        border-radius: 0.5rem;
+        color: v.$color_text;
         display: flex;
         flex-direction: column;
         align-items: center;
-        cursor: pointer;
         transition: .5s;
 
         &:hover {

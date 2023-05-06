@@ -7,18 +7,18 @@
                     <h3 class="experience__subtitle">{{experience.nameE}}</h3>
                     <p class="experience__description">{{experience.descriptionE}}</p>
                     <div class="experience__hover" *ngIf="isLogged">
-                        <div class="experience__boxHover">
+                        <a class="experience__boxHover" href="editexp/{{experience.id}}">
                             <i class="bx bx-pencil experience__iconHover"></i>
                             <span class="experience__textHover">Editar</span>
-                        </div>
-                        <div class="experience__boxHover">
+                        </a>
+                        <a class="experience__boxHover" role="button" (click)="delete(experience.id)">
                             <i class="bx bx-message-alt-x experience__iconHover"></i>
                             <span class="experience__textHover">Eliminar</span>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="experience__edit" *ngIf="isLogged"><button class="experience__btn" routerLink="/newexp">Crear</button></div>
+    <div class="experience__edit" *ngIf="isLogged"><a class="experience__btn" href="newexp">Crear</a></div>
 </section>

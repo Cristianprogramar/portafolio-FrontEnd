@@ -16,7 +16,7 @@ $transform: scale(1.1);
     justify-content: space-between;
     align-items: center;
     transition: .5s;
-    z-index: 100;
+    z-index: 9999;
 
     //Reduce el padding
     @include m.mq_notebook {
@@ -67,11 +67,11 @@ $transform: scale(1.1);
         }
     }
 
-    //Boton de login/logout
+    //Boton de login
     &__btn {
         margin-left: 3.5rem;
-        padding: 0.5rem 1.6rem;
-        border-radius: 0.5rem;
+        padding: .5rem 1.6rem;
+        border-radius: .5rem;
         font-size: 1.6rem;
         background-color: v.$color_principal;
         color: v.$color_text;

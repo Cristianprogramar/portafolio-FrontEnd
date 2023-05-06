@@ -12,6 +12,8 @@ import { TokenService } from 'src/app/service/token.service';
 export class ExperienceComponent implements OnInit {
     expe: Experience[] = [];
     isLogged = false;
+    errBase = false;
+    errMsj!: string;
 
     constructor(private sExperience: SExperienceService, private tokenService: TokenService) { }
 
@@ -27,6 +29,24 @@ export class ExperienceComponent implements OnInit {
 
     //Carga la lista de experiencias
     cargarExperiencia(): void {
-        this.sExperience.lista().subscribe(data => {this.expe = data;})
+        this.sExperience.lista().subscribe(data => {this.expe = data});
+    }
+
+    //Eliminar la experiencia
+    delete(id?: number) {
+        if(id != undefined) {
+            if (confirm('¿Estás seguro de que deseas eliminar esta experiencia?')) {
+                this.sExperience.delete(id).subscribe({
+                    next: data => {
+                        alert(data.mensaje);
+                        this.cargarExperiencia();
+                    },
+                    error: err => {
+                        this.errBase = true;
+                        alert(err.mensaje);
+                    }
+                })
+            }
+        }
     }
 }

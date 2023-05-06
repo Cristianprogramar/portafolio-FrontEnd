@@ -5,18 +5,18 @@
 .footer {
     padding: 2rem 9%;
     background: v.$color_bgPrincipal;
+    color: v.$color_text;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
     //Ajusta el footer con el mobile-bar
     @include m.mq_tablet {
-        margin-bottom: 8rem;
+        margin-bottom: 7rem;
     }
 
     //Cambia el flex
-    @include m.mq_phone {
+    @media (max-width: 544px) {
         flex-direction: column-reverse;
     }
 
@@ -25,7 +25,7 @@
         text-align: center;
 
         //Le da un espaciado
-        @include m.mq_phone {
+        @media (max-width: 544px) {
             margin-top: 1.5rem;
         }
     }
@@ -35,11 +35,6 @@
         font-size: 1.6rem;
     }
 
-    //Contenedor inferior
-    &__boxBottom {
-        text-align: center;
-    }
-
     //Contenedor del icono
     &__boxIcon {
         position: relative;
@@ -47,6 +42,7 @@
         border-radius: .6rem;
         border: .2rem solid v.$color_principal;
         background: v.$color_bgSecondary;
+        color: v.$color_text;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -73,6 +69,5 @@
     //Icono
     &__icon {
         font-size: 2.4rem;
-        color: v.$color_text;
     }
 }

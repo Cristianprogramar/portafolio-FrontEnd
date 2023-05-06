@@ -33,8 +33,7 @@ $transform: scale(1.1);
     //Contenido
     &__content {
         position: relative;
-        width: 40rem;
-        height: 45rem;
+        padding: 4rem;
         box-shadow: $shadow_box;
         border-radius: 2rem;
         border: .1rem solid $background_transparent;
@@ -47,7 +46,7 @@ $transform: scale(1.1);
     //Heading
     &__heading {
         font-size: 3.2rem;
-        color: v.$color_white;
+        color: v.$color_text;
         text-align: center;
     }
 
@@ -66,7 +65,7 @@ $transform: scale(1.1);
         left: .5rem;
         transform: translateY(-50%);
         font-size: 1.6rem;
-        color: v.$color_white;
+        color: v.$color_text;
         pointer-events: none;
         transition: .5s;
     }
@@ -144,7 +143,7 @@ $transform: scale(1.1);
         margin-top: 2.5rem;
         font-size: 1.6rem;
         background: v.$color_principal;
-        color: v.$color_white;
+        color: v.$color_text;
         text-transform: uppercase;
         transition: .5s;
         

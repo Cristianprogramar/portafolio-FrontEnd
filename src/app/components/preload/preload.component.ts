@@ -9,10 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class PreloadComponent implements OnInit {
     loading = true;
 
+    //Se quita el preload
     ngOnInit(): void {
-        //Se quita el preload
         window.onload = () => this.loading = false;
-
         window.addEventListener('popstate', () => {
             if (document.readyState === 'complete') {
                 this.loading = false;

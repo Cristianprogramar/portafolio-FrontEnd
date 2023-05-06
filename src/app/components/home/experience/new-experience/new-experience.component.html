@@ -1,15 +1,19 @@
-<div>
-    <div>
-        <div>
-            <form (ngSubmit)="onCreate()" #f="ngForm" novalidate>
-                <label for="nameE">Nombre</label>
-                <input type="text" id="nameE" name="nameE" [(ngModel)]="nameE" required>
-
-                <label for="descriptionE">Descripcion</label>
-                <input type="text" id="descriptionE" name="descriptionE" [(ngModel)]="descriptionE">
-
-                <button type="submit">Agregar</button>
-            </form>
-        </div>
+<section class="newExperience">
+    <div class="newExperience__blob"></div>
+    <div class="newExperience__content">
+        <form #f="ngForm" (ngSubmit)="onCreate()">
+            <h2 class="newExperience__heading">Experiencia</h2>
+            <div class="newExperience__boxInput">
+                <input class="newExperience__input" id="nameE" name="nameE" type="text" [(ngModel)]="nameE" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="newExperience__label" for="nameE">Nombre</label>
+            </div>
+            <div class="newExperience__boxInput">
+                <input class="newExperience__input" id="descriptionE" name="descriptionE" type="text" [(ngModel)]="descriptionE" (input)="clearErrorMessage()" autocomplete="off" required>
+                <label class="newExperience__label" for="descriptionE">Descripción</label>
+            </div>
+            <a class="newExperience__back" href="/">Regresar al inicio</a>
+            <div class="newExperience__boxError" *ngIf="errBase"><i class="bx bxs-error-alt newExperience__iconError"></i>{{errMsj}}</div>
+            <button class="newExperience__btn" type="submit">Agregar</button>
+        </form>
     </div>
-</div>
+</section>

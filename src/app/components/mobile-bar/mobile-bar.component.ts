@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
     styleUrls: ['./mobile-bar.component.scss']
 })
 
-export class MobileBarComponent {
-
-}
+export class MobileBarComponent { }

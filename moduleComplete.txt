@@ -1,9 +1,10 @@
 /* Módulos Completados */
 
--Login
--Messenger
--Preload
--Header
--Footer
--MobileBar
--Banner
+Footer
+Header
+Messenger
+Login
+Mobile-bar
+Preload
+Banner
+Experience

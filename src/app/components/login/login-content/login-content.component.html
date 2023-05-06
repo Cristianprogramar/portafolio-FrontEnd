@@ -2,10 +2,10 @@
     <div class="login__blob"></div>
     <div class="login__content">
         <form #loginForm="ngForm" (ngSubmit)="onLogin()">
-            <h2 class="login__heading">ARG Programa</h2>
+            <h2 class="login__heading">Iniciar sesión</h2>
             <div class="login__boxInput">
                 <span class="login__icon"><i class="bx bx-user"></i></span>
-                <input class="login__input" id="nombreUsuario" name="nombreUsuario" type="text" [(ngModel)]="nombreUsuario" autocomplete="off" (input)="clearErrorMessage()" required>
+                <input class="login__input" id="nombreUsuario" name="nombreUsuario" type="text" [(ngModel)]="nombreUsuario" (input)="clearErrorMessage()" autocomplete="off" required>
                 <label class="login__label" for="nombreUsuario">Usuario</label>
             </div>
             <div class="login__boxInput">

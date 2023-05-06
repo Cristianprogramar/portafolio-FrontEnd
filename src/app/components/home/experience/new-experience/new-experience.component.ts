@@ -10,19 +10,30 @@ import { SExperienceService } from 'src/app/service/s.experience.service';
 })
 
 export class NewExperienceComponent {
-
     nameE: string = '';
     descriptionE: string = '';
+    errBase = false;
+    errMsj!: string;
 
     constructor(private sExperience: SExperienceService, private router: Router) { }
 
+    //Lógica del formulario
     onCreate(): void {
         const expe = new Experience(this.nameE, this.descriptionE);
-        this.sExperience.save(expe).subscribe(data => {
-            alert('Se creo correctamente.');
-            this.router.navigate(['']).then(() => {window.location.reload()});
-        }, err => {
-            alert('Ocurrio un error.');
-        })
+        this.sExperience.save(expe).subscribe({
+            next: data => {
+                alert(data.mensaje);
+                this.router.navigate(['']).then(() => {window.location.reload()});
+            },
+            error: err => {
+                this.errBase = true;
+                this.errMsj = err.error.mensaje;
+            }
+        });
+    }
+
+    //Elimina el error al borrar en el input
+    clearErrorMessage() {
+        this.errBase = false;
     }
 }
