@@ -29,6 +29,10 @@ import { NewProjectsComponent } from './components/home/projects/new-projects/ne
 import { EditProjectsComponent } from './components/home/projects/edit-projects/edit-projects.component';
 import { EditSkillsComponent } from './components/home/skills/edit-skills/edit-skills.component';
 import { NewSkillsComponent } from './components/home/skills/new-skills/new-skills.component';
+import { EditAboutComponent } from './components/home/about/edit-about/edit-about.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
     declarations: [
@@ -54,7 +58,8 @@ import { NewSkillsComponent } from './components/home/skills/new-skills/new-skil
         NewProjectsComponent,
         EditProjectsComponent,
         EditSkillsComponent,
-        NewSkillsComponent
+        NewSkillsComponent,
+        EditAboutComponent
     ],
     imports: [
         BrowserModule,
@@ -70,10 +75,12 @@ import { NewSkillsComponent } from './components/home/skills/new-skills/new-skil
             titleFontSize: '18',
             titleColor: '#ededed',
             outerStrokeColor: '#28b2b6',
-            innerStrokeColor: '#fff',
+            innerStrokeColor: '#ededed',
             outerStrokeWidth: 12,
             innerStrokeWidth: 2
-        })
+        }),
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideStorage(() => getStorage())
     ],
     providers: [
         interceptorProvider

@@ -15,7 +15,7 @@ export class AuthService {
     constructor(private httpClient: HttpClient) { }
 
     //Crear un nuevo usuario en la base de datos
-    public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
+    public new(nuevoUsuario: NuevoUsuario): Observable<any> {
         return this.httpClient.post<any>(this.authURL + 'new', nuevoUsuario);
     }
 

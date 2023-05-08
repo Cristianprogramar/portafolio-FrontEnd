@@ -6,17 +6,18 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
+
 export class SEducationService {
     eduURL = 'http://localhost:8080/education/';
 
     constructor(private httpClient: HttpClient) { }
 
-    //Obtener la lista de la educaciones
+    //Obtener la lista de las educaciones
     public list(): Observable<Education[]> {
         return this.httpClient.get<Education[]>(this.eduURL + 'list');
     }
 
-    //Obtener los detalles de la educación
+    //Obtener los detalles de las educaciones
     public detail(id: number): Observable<Education> {
         return this.httpClient.get<Education>(this.eduURL + `detail/${id}`);
     }

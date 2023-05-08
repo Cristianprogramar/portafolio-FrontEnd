@@ -6,13 +6,14 @@ import { Skills } from '../model/skills';
 @Injectable({
     providedIn: 'root'
 })
+
 export class SkillsService {
     skillsURL = 'http://localhost:8080/hys/';
 
     constructor(private httpClient: HttpClient) { }
 
     //Obtener la lista de las skills
-    public lista(): Observable<Skills[]> {
+    public list(): Observable<Skills[]> {
         return this.httpClient.get<Skills[]>(this.skillsURL + 'list');
     }
 

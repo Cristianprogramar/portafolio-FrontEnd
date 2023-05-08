@@ -1,13 +1,15 @@
 export class persona {
     //Defino los parámetros del usuario
     id?: number;
-    nombre: String;
-    apellido: String;
-    img: String;
+    nombre: string;
+    apellido: string;
+    description: string;
+    img: string;
 
-    constructor(nombre: String, apellido: string, img: String) {
+    constructor(nombre: string, apellido: string, description: string, img: string) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.description = description;
         this.img = img;
     }
 }

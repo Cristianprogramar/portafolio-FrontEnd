@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class PreloadComponent implements OnInit {
     loading = true;
 
-    //Se quita el preload
+    //Se quita el preload al cargar la página
     ngOnInit(): void {
         window.onload = () => this.loading = false;
         window.addEventListener('popstate', () => {

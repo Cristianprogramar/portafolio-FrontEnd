@@ -21,7 +21,7 @@ export class LoginContentComponent implements OnInit {
 
     constructor(private tokenService: TokenService, private authService: AuthService, private router: Router) { }
 
-    //Verificar si el usuario ya está conectado
+    //Verificar si el usuario ya está autenticado
     ngOnInit(): void {
         if (this.tokenService.getToken()) {
             this.isLogged = true;

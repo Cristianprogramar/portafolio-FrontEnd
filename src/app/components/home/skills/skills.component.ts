@@ -27,7 +27,7 @@ export class SkillsComponent {
 
     //Carga la lista de skills
     loadSkills(): void {
-        this.skills.lista().subscribe(data => {this.skill = data});
+        this.skills.list().subscribe(data => {this.skill = data});
     }
 
     //Eliminar las skills

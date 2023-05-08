@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { persona } from 'src/app/model/persona.model';
-import { PersonaService } from 'src/app/service/persona.service';
+import { Component } from '@angular/core';
 import { saveAs } from 'file-saver'
 
 @Component({
@@ -9,16 +7,7 @@ import { saveAs } from 'file-saver'
     styleUrls: ['./banner.component.scss']
 })
 
-export class BannerComponent implements OnInit {
-    persona: persona = new persona("", "", "");
-
-    constructor(public personaService: PersonaService) { }
-
-    //Traigo el nombre de la base de datos
-    ngOnInit(): void {
-        this.personaService.getPersona().subscribe(data => {this.persona = data})
-    }
-
+export class BannerComponent {
     //Descarga el CV desde assets
     downloadCv() {
         const url = '../../../../assets/img/general/cv.png';

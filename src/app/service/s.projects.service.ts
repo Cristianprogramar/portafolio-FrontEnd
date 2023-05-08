@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
+
 export class SProjectsService {
     proURL = 'http://localhost:8080/projects/';
 

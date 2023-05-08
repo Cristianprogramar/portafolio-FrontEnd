@@ -11,6 +11,7 @@ import { NewProjectsComponent } from './components/home/projects/new-projects/ne
 import { EditProjectsComponent } from './components/home/projects/edit-projects/edit-projects.component';
 import { NewSkillsComponent } from './components/home/skills/new-skills/new-skills.component';
 import { EditSkillsComponent } from './components/home/skills/edit-skills/edit-skills.component';
+import { EditAboutComponent } from './components/home/about/edit-about/edit-about.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
     {path: 'editpro/:id', component: EditProjectsComponent, canActivate: [AuthGuard]},
     {path: 'newskill', component: NewSkillsComponent, canActivate: [AuthGuard]},
     {path: 'editskill/:id', component: EditSkillsComponent, canActivate: [AuthGuard]},
+    {path: 'editabout/:id', component: EditAboutComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: ''}
 ];
 

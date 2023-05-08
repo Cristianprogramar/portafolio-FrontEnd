@@ -1,0 +1,115 @@
+@use '../../../../../scss/variables' as v;
+@use '../../../../../scss/mixins' as m;
+
+/* Variables Locales */
+$background_transparent: rgba(255, 255, 255, .15);
+$shadow_box: 0 .8rem 3.2rem rgba(31, 38, 135, .15);
+$transform: scale(1.1);
+
+/* Mixins Locales */
+@mixin animationBlob() {
+    animation: editAboutBlob 20s infinite alternate;
+    @keyframes editAboutBlob {
+        100% {
+            transform: translate(30rem, -5rem) rotate(-10deg);
+            border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+        }
+    }
+}
+
+//Contenedor principal
+.editAbout {
+    @include m.sectionHome();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //Efecto del fondo
+    &__blob {
+        @include m.blob();
+        @include animationBlob();
+    }
+
+    //Contenido
+    &__content {
+        position: relative;
+        padding: 4rem;
+        box-shadow: $shadow_box;
+        border-radius: 2rem;
+        border: .1rem solid $background_transparent;
+        background: $background_transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    //Heading
+    &__heading {
+        font-size: 3.2rem;
+        color: v.$color_text;
+        text-align: center;
+    }
+
+    //Contenedor de los inputs
+    &__boxInput {
+        position: relative;
+        width: 32rem;
+        margin: 3rem 0;
+        border-bottom: .2rem solid v.$color_text;
+    }
+
+    //Texto label
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: .5rem;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        color: v.$color_text;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    //Inputs
+    &__input {
+        width: 100%;
+        height: 5rem;
+        padding: 0 3.5rem 0 .5rem;
+        font-size: 1.6rem;
+        background: transparent;
+        color: v.$color_text;
+
+        &:focus~label,
+        &:valid~label {
+            top: 0;
+        }
+    }
+
+    //Volver al inicio
+    &__back {
+        margin: 1rem 0 1.5rem;
+        font-size: 1.5rem;
+        color: v.$color_text;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    //Boton
+    &__btn {
+        width: 100%;
+        height: 5rem;
+        border-radius: 4rem;
+        margin-top: 2.5rem;
+        font-size: 1.6rem;
+        background: v.$color_principal;
+        color: v.$color_text;
+        text-transform: uppercase;
+        transition: .5s;
+        
+        &:hover {
+            transform: $transform;
+        }
+    }
+}

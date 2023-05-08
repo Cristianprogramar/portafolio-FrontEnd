@@ -1,0 +1,25 @@
+<section class="editAbout" *ngIf="persona">
+    <div class="editAbout__blob"></div>
+    <div class="editAbout__content">
+        <form #f="ngForm" (ngSubmit)="onUpdate()">
+            <h2 class="editAbout__heading">Sobre Mi</h2>
+            <div class="editAbout__boxInput">
+                <input class="editAbout__input" id="nombre" name="nombre" type="text" [(ngModel)]="persona.nombre" autocomplete="off" required>
+                <label class="editAbout__label" for="nombre">Nombre</label>
+            </div>
+            <div class="editAbout__boxInput">
+                <input class="editAbout__input" id="apellido" name="apellido" type="text" [(ngModel)]="persona.apellido" autocomplete="off" required>
+                <label class="editAbout__label" for="apellido">Apellido</label>
+            </div>
+            <div class="editAbout__boxInput">
+                <input class="editAbout__input" id="description" name="description" type="text" [(ngModel)]="persona.description" autocomplete="off" required>
+                <label class="editAbout__label" for="description">Descripcion</label>
+            </div>
+            <div class="editAbout__boxInput">
+                <input class="editAbout__input" id="img" name="img" type="file" autocomplete="off" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png, .webp" required>
+            </div>
+            <a class="editAbout__back" href="/">Regresar al inicio</a>
+            <button class="editAbout__btn" type="submit">Editar</button>
+        </form>
+    </div>
+</section>

@@ -1,5 +1,5 @@
 export class Experience {
-    //Define el modelo de la experiencia con su respectiva información
+    //Define el modelo de las experiencias con su respectiva información
     id?: number;
     nameE: string;
     descriptionE: string;

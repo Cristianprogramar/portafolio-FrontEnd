@@ -1,9 +1,14 @@
 /* Módulos Completados */
 
+Preload
+Messenger
 Footer
 Header
-Messenger
-Preload
 Mobile-bar
 Login
+About
 Banner
+Education
+Experience
+Projects
+Skills
