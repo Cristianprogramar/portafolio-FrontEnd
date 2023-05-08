@@ -10,7 +10,7 @@ import { JwtDto } from '../model/jwt-dto';
 })
 
 export class AuthService {
-    authURL = 'http://localhost:8080/auth/';
+    authURL = 'https://proyectofinal-58q0.onrender.com/auth/';
 
     constructor(private httpClient: HttpClient) { }
 

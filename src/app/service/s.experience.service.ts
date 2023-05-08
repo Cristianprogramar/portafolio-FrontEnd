@@ -8,7 +8,7 @@ import { Experience } from '../model/experience';
 })
 
 export class SExperienceService {
-    expURL = 'http://localhost:8080/experience/';
+    expURL = 'https://proyectofinal-58q0.onrender.com/experience/';
 
     constructor(private httpClient: HttpClient) { }
 
