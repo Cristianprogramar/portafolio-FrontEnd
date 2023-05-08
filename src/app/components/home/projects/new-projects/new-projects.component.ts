@@ -9,30 +9,39 @@ import { SProjectsService } from 'src/app/service/s.projects.service';
     styleUrls: ['./new-projects.component.scss']
 })
 export class NewProjectsComponent {
-    nameP: string = '';
-    descriptionP: string = '';
-    errBase = false;
-    errMsj!: string;
+    nameP: string;
+    descriptionP: string;
 
     constructor(private sProjects: SProjectsService, private router: Router) { }
 
     //Lógica del formulario
     onCreate(): void {
-        const pro = new Projects(this.nameP, this.descriptionP);
-        this.sProjects.save(pro).subscribe({
-            next: data => {
-                alert(data.mensaje);
-                this.router.navigate(['']).then(() => {window.location.reload()});
-            },
-            error: err => {
-                this.errBase = true;
-                this.errMsj = err.error.mensaje;
-            }
-        });
+        if (this.validation()) {
+            const pro = new Projects(this.nameP, this.descriptionP);
+            this.sProjects.save(pro).subscribe({
+                next: data => {
+                    alert(data.mensaje);
+                    this.router.navigate(['']).then(() => {window.location.reload()});
+                },
+                error: err => {
+                    alert(err.mensaje);
+                }
+            });
+        }
     }
 
-    //Elimina el error al borrar en el input
-    clearErrorMessage() {
-        this.errBase = false;
+    //Valida los campos
+    validation(): boolean {
+        if (!this.nameP || !this.descriptionP) {
+            alert("Todos los campos son obligatorios.");
+            return false;
+        } else if (this.nameP.length < 10) {
+            alert("El nombre debe tener al menos 10 caracteres.");
+            return false;
+        } else if (this.descriptionP.length < 50) {
+            alert("La descripción debe tener al menos 50 caracteres.");
+            return false;
+        }
+        return true;
     }
 }

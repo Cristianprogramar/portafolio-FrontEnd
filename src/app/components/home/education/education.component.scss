@@ -121,7 +121,7 @@ $transform: scale(1.2);
 
     //Contenedor de los iconos y textos
     &__boxHover {
-        padding: 0.5rem 1.5rem;
+        padding: .5rem 1.5rem;
         margin: 0 1.5rem;
         color: v.$color_text;
         display: flex;
@@ -131,6 +131,11 @@ $transform: scale(1.2);
 
         &:hover {
             transform: $transform;
+        }
+
+        //Color rojo
+        &--colorDelete {
+            color: v.$color_error;
         }
     }
 

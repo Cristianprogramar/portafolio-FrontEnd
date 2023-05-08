@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -9,6 +9,8 @@ import { NewEducationComponent } from './components/home/education/new-education
 import { EditEducationComponent } from './components/home/education/edit-education/edit-education.component';
 import { NewProjectsComponent } from './components/home/projects/new-projects/new-projects.component';
 import { EditProjectsComponent } from './components/home/projects/edit-projects/edit-projects.component';
+import { NewSkillsComponent } from './components/home/skills/new-skills/new-skills.component';
+import { EditSkillsComponent } from './components/home/skills/edit-skills/edit-skills.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -19,6 +21,8 @@ const routes: Routes = [
     {path: 'editedu/:id', component: EditEducationComponent, canActivate: [AuthGuard]},
     {path: 'newpro', component: NewProjectsComponent, canActivate: [AuthGuard]},
     {path: 'editpro/:id', component: EditProjectsComponent, canActivate: [AuthGuard]},
+    {path: 'newskill', component: NewSkillsComponent, canActivate: [AuthGuard]},
+    {path: 'editskill/:id', component: EditSkillsComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: ''}
 ];
 

@@ -12,14 +12,12 @@ import { TokenService } from 'src/app/service/token.service';
 export class ExperienceComponent implements OnInit {
     expe: Experience[] = [];
     isLogged = false;
-    errBase = false;
-    errMsj!: string;
 
     constructor(private sExperience: SExperienceService, private tokenService: TokenService) { }
 
     //Verifica si el usuario está autenticado
     ngOnInit(): void {
-        this.cargarExperiencia();
+        this.loadExperience();
         if (this.tokenService.getToken()) {
             this.isLogged = true;
         } else {
@@ -28,8 +26,8 @@ export class ExperienceComponent implements OnInit {
     }
 
     //Carga la lista de experiencias
-    cargarExperiencia(): void {
-        this.sExperience.lista().subscribe(data => {this.expe = data});
+    loadExperience(): void {
+        this.sExperience.list().subscribe(data => {this.expe = data});
     }
 
     //Eliminar la experiencia
@@ -39,10 +37,9 @@ export class ExperienceComponent implements OnInit {
                 this.sExperience.delete(id).subscribe({
                     next: data => {
                         alert(data.mensaje);
-                        this.cargarExperiencia();
+                        this.loadExperience();
                     },
                     error: err => {
-                        this.errBase = true;
                         alert(err.mensaje);
                     }
                 })

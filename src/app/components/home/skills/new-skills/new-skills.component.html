@@ -1,0 +1,18 @@
+<section class="newSkill">
+    <div class="newSkill__blob"></div>
+    <div class="newSkill__content">
+        <form #f="ngForm" (ngSubmit)="onCreate()">
+            <h2 class="newSkill__heading">Hard & Soft Skill</h2>
+            <div class="newSkill__boxInput">
+                <input class="newSkill__input" id="name" name="name" type="text" [(ngModel)]="name" autocomplete="off" required>
+                <label class="newSkill__label" for="name">Nombre</label>
+            </div>
+            <div class="newSkill__boxInput">
+                <input class="newSkill__input" id="percent" name="percent" type="number" [(ngModel)]="percent" autocomplete="off" required>
+                <label class="newSkill__label" for="percent">Porcentaje</label>
+            </div>
+            <a class="newSkill__back" href="/">Regresar al inicio</a>
+            <button class="newSkill__btn" type="submit">Agregar</button>
+        </form>
+    </div>
+</section>

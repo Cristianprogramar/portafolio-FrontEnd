@@ -2,7 +2,7 @@
 @use '../../../scss/mixins' as m;
 
 /* Variables Locales */
-$background_hover: rgba(10, 20, 37, 0.2);
+$background_hover: rgba(10, 20, 37, .2);
 
 //Contenedor principal
 .mobileBar {
@@ -44,7 +44,7 @@ $background_hover: rgba(10, 20, 37, 0.2);
 
     //Iconos
     &__icon {
-        margin-bottom: 0.5rem;
+        margin-bottom: .5rem;
         font-size: 2.7rem;
     }
 

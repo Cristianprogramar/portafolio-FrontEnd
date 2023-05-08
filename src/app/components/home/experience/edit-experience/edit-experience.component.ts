@@ -9,9 +9,7 @@ import { SExperienceService } from 'src/app/service/s.experience.service';
     styleUrls: ['./edit-experience.component.scss']
 })
 export class EditExperienceComponent implements OnInit {
-    workExp: Experience = null;
-    errBase = false;
-    errMsj!: string;
+    expe: Experience = null;
 
     constructor(private sExperience: SExperienceService, private activatedRouter: ActivatedRoute, private router: Router) { }
 
@@ -20,28 +18,42 @@ export class EditExperienceComponent implements OnInit {
         const id = this.activatedRouter.snapshot.params['id'];
         this.sExperience.detail(id).subscribe({
             next: data => {
-                this.workExp = data;
-            }
-        })
-    }
-
-    //Maneja la actualización
-    onUpdate() {
-        const id = this.activatedRouter.snapshot.params['id'];
-        this.sExperience.update(id, this.workExp).subscribe({
-            next: data => {
-                alert(data.mensaje);
-                this.router.navigate(['']).then(() => {window.location.reload()});
+                this.expe = data;
             },
             error: err => {
-                this.errBase = true;
-                this.errMsj = err.error.mensaje;
+                alert(err.mensaje);
             }
         });
     }
 
-    //Elimina el error al borrar en el input
-    clearErrorMessage() {
-        this.errBase = false;
+    //Maneja la actualización
+    onUpdate(): void {
+        if (this.validation()) {
+            const id = this.activatedRouter.snapshot.params['id'];
+            this.sExperience.update(id, this.expe).subscribe({
+                next: data => {
+                    alert(data.mensaje);
+                    this.router.navigate(['']).then(() => {window.location.reload()});
+                },
+                error: err => {
+                    alert(err.mensaje);
+                }
+            });
+        }
+    }
+
+    //Valida los campos
+    validation(): boolean {
+        if (!this.expe.nameE || !this.expe.descriptionE) {
+            alert("Todos los campos son obligatorios.");
+            return false;
+        } else if (this.expe.nameE.length < 10) {
+            alert("El nombre debe tener al menos 10 caracteres.");
+            return false;
+        } else if (this.expe.descriptionE.length < 50) {
+            alert("La descripción debe tener al menos 50 caracteres.");
+            return false;
+        }
+        return true;
     }
 }

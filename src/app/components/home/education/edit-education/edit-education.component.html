@@ -4,15 +4,14 @@
         <form #f="ngForm" (ngSubmit)="onUpdate()">
             <h2 class="editExperience__heading">Educación</h2>
             <div class="editExperience__boxInput">
-                <input class="editExperience__input" id="nameEdu" name="nameEdu" type="text" [(ngModel)]="edu.nameEdu" (input)="clearErrorMessage()" autocomplete="off" required>
+                <input class="editExperience__input" id="nameEdu" name="nameEdu" type="text" [(ngModel)]="edu.nameEdu" autocomplete="off" required>
                 <label class="editExperience__label" for="nameEdu">Nombre</label>
             </div>
             <div class="editExperience__boxInput">
-                <input class="editExperience__input" id="descriptionEdu" name="descriptionEdu" type="text" [(ngModel)]="edu.descriptionEdu" (input)="clearErrorMessage()" autocomplete="off" required>
+                <input class="editExperience__input" id="descriptionEdu" name="descriptionEdu" type="text" [(ngModel)]="edu.descriptionEdu" autocomplete="off" required>
                 <label class="editExperience__label" for="descriptionEdu">Descripción</label>
             </div>
             <a class="editExperience__back" href="/">Regresar al inicio</a>
-            <div class="editExperience__boxError" *ngIf="errBase"><i class="bx bxs-error-alt newExperience__iconError"></i>{{errMsj}}</div>
             <button class="editExperience__btn" type="submit">Editar</button>
         </form>
     </div>

@@ -12,14 +12,12 @@ import { TokenService } from 'src/app/service/token.service';
 export class EducationComponent {
     edu: Education[] = [];
     isLogged = false;
-    errBase = false;
-    errMsj!: string;
 
     constructor(private sEducation: SEducationService, private tokenService: TokenService) { }
 
     //Verifica si el usuario está autenticado
     ngOnInit(): void {
-        this.cargarEducacion();
+        this.loadEducation();
         if (this.tokenService.getToken()) {
             this.isLogged = true;
         } else {
@@ -28,8 +26,8 @@ export class EducationComponent {
     }
 
     //Carga la lista de educaciones
-    cargarEducacion(): void {
-        this.sEducation.lista().subscribe(data => {this.edu = data});
+    loadEducation(): void {
+        this.sEducation.list().subscribe(data => {this.edu = data});
     }
 
     //Eliminar la educación
@@ -39,10 +37,9 @@ export class EducationComponent {
                 this.sEducation.delete(id).subscribe({
                     next: data => {
                         alert(data.mensaje);
-                        this.cargarEducacion();
+                        this.loadEducation();
                     },
                     error: err => {
-                        this.errBase = true;
                         alert(err.mensaje);
                     }
                 })

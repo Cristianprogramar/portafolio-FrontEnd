@@ -30,11 +30,11 @@ export class LoginContentComponent implements OnInit {
         }
     }
 
-    //Agregar validación para campos vacíos
+    //Valida los campos
     onLogin(): void {
         if (!this.nombreUsuario || !this.password) {
             this.isLogginFail = true;
-            this.errMsj = 'Los campos están vacíos.';
+            this.errMsj = 'Los campos son obligatorios.';
             return;
         }
 

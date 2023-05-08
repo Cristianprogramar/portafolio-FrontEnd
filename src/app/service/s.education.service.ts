@@ -12,7 +12,7 @@ export class SEducationService {
     constructor(private httpClient: HttpClient) { }
 
     //Obtener la lista de la educaciones
-    public lista(): Observable<Education[]> {
+    public list(): Observable<Education[]> {
         return this.httpClient.get<Education[]>(this.eduURL + 'list');
     }
 

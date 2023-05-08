@@ -8,8 +8,8 @@ $transform: scale(1.1);
 
 /* Mixins Locales */
 @mixin animationBlob() {
-    animation: editProjectsBlob 20s infinite alternate;
-    @keyframes editProjectsBlob {
+    animation: newSkillsBlob 20s infinite alternate;
+    @keyframes newSkillsBlob {
         100% {
             transform: translate(30rem, -5rem) rotate(-10deg);
             border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
@@ -18,7 +18,7 @@ $transform: scale(1.1);
 }
 
 //Contenedor principal
-.editProjects {
+.newSkill {
     @include m.sectionHome();
     display: flex;
     justify-content: center;
@@ -83,6 +83,15 @@ $transform: scale(1.1);
         &:valid~label {
             top: 0;
         }
+    }
+
+    //Iconos
+    &__icon {
+        position: absolute;
+        right: .8rem;
+        line-height: 5.7rem;
+        font-size: 2rem;
+        color: v.$color_text;
     }
 
     //Volver al inicio

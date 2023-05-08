@@ -10,30 +10,39 @@ import { SExperienceService } from 'src/app/service/s.experience.service';
 })
 
 export class NewExperienceComponent {
-    nameE: string = '';
-    descriptionE: string = '';
-    errBase = false;
-    errMsj!: string;
+    nameE: string;
+    descriptionE: string;
 
     constructor(private sExperience: SExperienceService, private router: Router) { }
 
     //Lógica del formulario
     onCreate(): void {
-        const expe = new Experience(this.nameE, this.descriptionE);
-        this.sExperience.save(expe).subscribe({
-            next: data => {
-                alert(data.mensaje);
-                this.router.navigate(['']).then(() => {window.location.reload()});
-            },
-            error: err => {
-                this.errBase = true;
-                this.errMsj = err.error.mensaje;
-            }
-        });
+        if (this.validation()) {
+            const expe = new Experience(this.nameE, this.descriptionE);
+            this.sExperience.save(expe).subscribe({
+                next: data => {
+                    alert(data.mensaje);
+                    this.router.navigate(['']).then(() => {window.location.reload()});
+                },
+                error: err => {
+                    alert(err.mensaje);
+                }
+            });
+        }
     }
 
-    //Elimina el error al borrar en el input
-    clearErrorMessage() {
-        this.errBase = false;
+    //Valida los campos
+    validation(): boolean {
+        if (!this.nameE || !this.descriptionE) {
+            alert("Todos los campos son obligatorios.");
+            return false;
+        } else if (this.nameE.length < 10) {
+            alert("El nombre debe tener al menos 10 caracteres.");
+            return false;
+        } else if (this.descriptionE.length < 50) {
+            alert("La descripción debe tener al menos 50 caracteres.");
+            return false;
+        }
+        return true;
     }
 }

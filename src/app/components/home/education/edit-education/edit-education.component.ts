@@ -27,21 +27,34 @@ export class EditEducationComponent {
 
     //Maneja la actualización
     onUpdate() {
-        const id = this.activatedRouter.snapshot.params['id'];
-        this.sEducation.update(id, this.edu).subscribe({
-            next: data => {
-                alert(data.mensaje);
-                this.router.navigate(['']).then(() => {window.location.reload()});
-            },
-            error: err => {
-                this.errBase = true;
-                this.errMsj = err.error.mensaje;
-            }
-        });
+        if (this.validation()) {
+            const id = this.activatedRouter.snapshot.params['id'];
+            this.sEducation.update(id, this.edu).subscribe({
+                next: data => {
+                    alert(data.mensaje);
+                    this.router.navigate(['']).then(() => {window.location.reload()});
+                },
+                error: err => {
+                    this.errBase = true;
+                    this.errMsj = err.error.mensaje;
+                }
+            });
+
+        }
     }
 
-    //Elimina el error al borrar en el input
-    clearErrorMessage() {
-        this.errBase = false;
+    //Valida los campos
+    validation(): boolean {
+        if (!this.edu.nameEdu || !this.edu.descriptionEdu) {
+            alert("Todos los campos son obligatorios.");
+            return false;
+        } else if (this.edu.nameEdu.length < 10) {
+            alert("El nombre debe tener al menos 10 caracteres.");
+            return false;
+        } else if (this.edu.descriptionEdu.length < 50) {
+            alert("La descripción debe tener al menos 50 caracteres.");
+            return false;
+        }
+        return true;
     }
 }

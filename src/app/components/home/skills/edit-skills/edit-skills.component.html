@@ -1,0 +1,18 @@
+<section class="editSkill" *ngIf="skill">
+    <div class="editSkill__blob"></div>
+    <div class="editSkill__content">
+        <form #f="ngForm" (ngSubmit)="onUpdate()">
+            <h2 class="editSkill__heading">Experiencia</h2>
+            <div class="editSkill__boxInput">
+                <input class="editSkill__input" id="name" name="name" type="text" [(ngModel)]="skill.name" autocomplete="off" required>
+                <label class="editSkill__label" for="name">Nombre</label>
+            </div>
+            <div class="editSkill__boxInput">
+                <input class="editSkill__input" id="percent" name="percent" type="number" [(ngModel)]="skill.percent" autocomplete="off" required>
+                <label class="editSkill__label" for="percent">Porcentaje</label>
+            </div>
+            <a class="editSkill__back" href="/">Regresar al inicio</a>
+            <button class="editSkill__btn" type="submit">Editar</button>
+        </form>
+    </div>
+</section>

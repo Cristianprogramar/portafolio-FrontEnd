@@ -1,26 +1,29 @@
 @use '../../../../scss/variables' as v;
 @use '../../../../scss/mixins' as m;
 
+/* Variables Locales */
+$transform: scale(1.2);
+
 //Contenedor principal
-.skills {
+.skill {
     @include m.sectionHome();
     background: v.$color_bgSecondary;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 3rem;
 
     //Texto de la sección
     &__heading {
         @include m.heading();
     }
 
-    //Contenido
-    &__content {
+    //Bloque principal
+    &__box {
+        margin: 2rem 0 3rem;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-gap: 2rem;
 
         @include m.mq_notebook {
             grid-template-columns: repeat(3, 1fr);
@@ -33,5 +36,50 @@
         @include m.mq_phone {
             grid-template-columns: repeat(1, 1fr);
         }
+    }
+
+    //Contenido
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    //Contenedor de los iconos
+    &__boxIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    //Iconos
+    &__icon {
+        margin: 0 .5rem;
+        font-size: 3.2rem;
+        color: v.$color_text;
+        transition: .5s;
+
+        &:hover {
+            transform: $transform;
+        }
+
+        //Color rojo
+        &--colorDelete {
+            color: v.$color_error;
+        }
+    }
+
+    //Contenedor del botón
+    &__edit {
+        position: relative;
+        width: 15rem;
+        height: 5rem;
+        display: inline-block
+    }
+
+    //Botón de edición
+    &__btn {
+        @include m.buttonPrincipal();
     }
 }

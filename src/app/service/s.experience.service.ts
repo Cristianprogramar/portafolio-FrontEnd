@@ -13,7 +13,7 @@ export class SExperienceService {
     constructor(private httpClient: HttpClient) { }
 
     //Obtener la lista de experiencias laborales
-    public lista(): Observable<Experience[]> {
+    public list(): Observable<Experience[]> {
         return this.httpClient.get<Experience[]>(this.expURL + 'list');
     }
 

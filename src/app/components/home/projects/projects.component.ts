@@ -11,14 +11,12 @@ import { TokenService } from 'src/app/service/token.service';
 export class ProjectsComponent {
     pro: Projects[] = [];
     isLogged = false;
-    errBase = false;
-    errMsj!: string;
 
     constructor(private sProjects: SProjectsService, private tokenService: TokenService) { }
 
     //Verifica si el usuario está autenticado
     ngOnInit(): void {
-        this.cargarProyectos();
+        this.loadProjects();
         if (this.tokenService.getToken()) {
             this.isLogged = true;
         } else {
@@ -27,8 +25,8 @@ export class ProjectsComponent {
     }
 
     //Carga la lista de proyectos
-    cargarProyectos(): void {
-        this.sProjects.lista().subscribe(data => {this.pro = data});
+    loadProjects(): void {
+        this.sProjects.list().subscribe(data => {this.pro = data});
     }
 
     //Eliminar los proyectos
@@ -38,10 +36,9 @@ export class ProjectsComponent {
                 this.sProjects.delete(id).subscribe({
                     next: data => {
                         alert(data.mensaje);
-                        this.cargarProyectos();
+                        this.loadProjects();
                     },
                     error: err => {
-                        this.errBase = true;
                         alert(err.mensaje);
                     }
                 })

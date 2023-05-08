@@ -4,15 +4,14 @@
         <form #f="ngForm" (ngSubmit)="onCreate()">
             <h2 class="newEducation__heading">Educación</h2>
             <div class="newEducation__boxInput">
-                <input class="newEducation__input" id="nameEdu" name="nameEdu" type="text" [(ngModel)]="nameEdu" (input)="clearErrorMessage()" autocomplete="off" required>
+                <input class="newEducation__input" id="nameEdu" name="nameEdu" type="text" [(ngModel)]="nameEdu" autocomplete="off" required>
                 <label class="newEducation__label" for="nameEdu">Nombre</label>
             </div>
             <div class="newEducation__boxInput">
-                <input class="newEducation__input" id="descriptionEdu" name="descriptionEdu" type="text" [(ngModel)]="descriptionEdu" (input)="clearErrorMessage()" autocomplete="off" required>
+                <input class="newEducation__input" id="descriptionEdu" name="descriptionEdu" type="text" [(ngModel)]="descriptionEdu" autocomplete="off" required>
                 <label class="newEducation__label" for="descriptionEdu">Descripción</label>
             </div>
             <a class="newEducation__back" href="/">Regresar al inicio</a>
-            <div class="newEducation__boxError" *ngIf="errBase"><i class="bx bxs-error-alt newEducation__iconError"></i>{{errMsj}}</div>
             <button class="newEducation__btn" type="submit">Agregar</button>
         </form>
     </div>
