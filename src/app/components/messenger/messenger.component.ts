@@ -14,9 +14,10 @@ export class MessengerComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.http.get('../../../assets/js/messenger.js', {responseType: 'text'})
         .subscribe((scriptContent: string) => {
-            const scriptMessenger = document.createElement('scriptMessenger');
+            const scriptMessenger = document.createElement('script');
             scriptMessenger.innerHTML = scriptContent;
-            document.body.appendChild(scriptMessenger);
+            const head = document.getElementsByTagName('head')[0];
+            head.insertBefore(scriptMessenger, head.lastChild);
         });
     }
 }
