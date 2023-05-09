@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class SEducationService {
-    eduURL = 'https://proyectofinal-58q0.onrender.com/education/';
+    eduURL = 'https://yoprogramo-fzwg.onrender.com/education/';
 
     constructor(private httpClient: HttpClient) { }
 

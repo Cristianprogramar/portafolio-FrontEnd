@@ -8,7 +8,7 @@ import { Skills } from '../model/skills';
 })
 
 export class SkillsService {
-    skillsURL = 'https://proyectofinal-58q0.onrender.com/hys/';
+    skillsURL = 'https://yoprogramo-fzwg.onrender.com/hys/';
 
     constructor(private httpClient: HttpClient) { }
 

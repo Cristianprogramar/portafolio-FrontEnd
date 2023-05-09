@@ -8,7 +8,7 @@ import { Experience } from '../model/experience';
 })
 
 export class SExperienceService {
-    expURL = 'https://proyectofinal-58q0.onrender.com/experience/';
+    expURL = 'https://yoprogramo-fzwg.onrender.com/experience/';
 
     constructor(private httpClient: HttpClient) { }
 
